@@ -44,6 +44,42 @@
     deptBars.forEach(function (b) { barObs.observe(b); });
   }
 
+  /* ── 3D Tilt on Planning Board ── */
+  var board = document.querySelector(".planning-board");
+  if (board && !reduceMotion) {
+    var hero = document.querySelector(".hero");
+    if (hero) {
+      hero.addEventListener("mousemove", function (e) {
+        var rect = hero.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        board.style.transform =
+          "rotateX(" + (-y * 6) + "deg) rotateY(" + (x * 8) + "deg) translateZ(20px)";
+      });
+      hero.addEventListener("mouseleave", function () {
+        board.style.transform = "rotateX(2deg) translateZ(20px)";
+      });
+    }
+  }
+
+  /* ── 3D Tilt on Contact Frame ── */
+  var frame = document.querySelector(".connect-frame");
+  if (frame && !reduceMotion) {
+    var connect = document.querySelector(".connect-section");
+    if (connect) {
+      connect.addEventListener("mousemove", function (e) {
+        var rect = connect.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        frame.style.transform =
+          "translateZ(40px) rotateX(" + (-y * 3) + "deg) rotateY(" + (x * 4) + "deg)";
+      });
+      connect.addEventListener("mouseleave", function () {
+        frame.style.transform = "translateZ(40px)";
+      });
+    }
+  }
+
   /* ── Stage LED slides ── */
   var stageBtns = document.querySelectorAll(".stage-btn");
   var slides = document.querySelectorAll(".led-slide");
