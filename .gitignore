@@ -1,0 +1,4 @@
+# Local agent/tooling files — not part of the site
+.agents/
+.claude/
+skills-lock.json
