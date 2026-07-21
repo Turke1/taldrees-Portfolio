@@ -30,24 +30,16 @@
     var target = parseInt(el.getAttribute("data-count"), 10);
     if (isNaN(target)) return;
 
-    var current = 0;
     var duration = 1500;
-    var step = Math.max(1, Math.floor(target / 60));
     var startTime = null;
 
     function tick(timestamp) {
       if (!startTime) startTime = timestamp;
-      var progress = timestamp - startTime;
-      var increment = Math.min(current + step, target);
-      current = increment;
-
-      if (target <= 100) {
-        el.textContent = current;
-      } else {
-        el.textContent = current >= 100 ? (current / 10).toFixed(target === 2030 ? 0 : 1) : current;
-      }
-
-      if (current < target && progress < duration) {
+      var progress = Math.min((timestamp - startTime) / duration, 1);
+      var eased = 1 - Math.pow(1 - progress, 3);
+      var current = Math.round(eased * target);
+      el.textContent = current;
+      if (progress < 1) {
         requestAnimationFrame(tick);
       } else {
         el.textContent = target;
@@ -63,8 +55,11 @@
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            animateCounter(entry.target);
-            countIo.unobserve(entry.target);
+            var el = entry.target;
+            if (el.classList.contains("dash-value") || el.classList.contains("stat-num")) {
+              animateCounter(el);
+            }
+            countIo.unobserve(el);
           }
         });
       },
@@ -77,45 +72,63 @@
     });
   }
 
-  /* ── Timeline progress bar ── */
-  var timelineBar = document.querySelector(".timeline-progress");
-  if (timelineBar && "IntersectionObserver" in window && !reduceMotion) {
-    var timelineObs = new IntersectionObserver(
+  /* ── Milestone horizontal scroll snap ── */
+  var track = document.querySelector(".milestones-track");
+  if (track) {
+    var cards = track.querySelectorAll(".milestone");
+    if (cards.length > 0 && "IntersectionObserver" in window && !reduceMotion) {
+      var mileObs = new IntersectionObserver(
+        function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("in-view");
+              mileObs.unobserve(entry.target);
+            }
+          });
+        },
+        { threshold: 0.3 }
+      );
+      cards.forEach(function (c) { mileObs.observe(c); });
+    }
+  }
+
+  /* ── Nav active section highlight ── */
+  var sections = document.querySelectorAll("section[id]");
+  var navLinks = document.querySelectorAll(".nav-links a");
+  if (sections.length > 0 && navLinks.length > 0 && "IntersectionObserver" in window) {
+    var navObs = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
-            var timeline = entry.target.closest(".timeline");
-            if (timeline) {
-              var cards = timeline.querySelectorAll(".project-card");
-              if (cards.length > 0) {
-                var lastCard = cards[cards.length - 1];
-                var totalHeight = lastCard.offsetTop + lastCard.offsetHeight;
-                timelineBar.style.height = totalHeight + "px";
-              }
-            }
-            timelineObs.unobserve(entry.target);
+            var id = entry.target.id;
+            navLinks.forEach(function (link) {
+              link.style.color = link.getAttribute("href") === "#" + id
+                ? "var(--gold)"
+                : "";
+              link.style.background = link.getAttribute("href") === "#" + id
+                ? "rgba(240, 165, 0, 0.08)"
+                : "";
+            });
           }
         });
       },
-      { threshold: 0.1 }
+      { rootMargin: "-40% 0px -55% 0px" }
     );
-    timelineObs.observe(timelineBar);
+    sections.forEach(function (s) { navObs.observe(s); });
   }
 
-  /* ── Project expand/collapse ── */
-  var expandBtns = document.querySelectorAll(".project-expand");
-  expandBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var targetId = btn.getAttribute("data-target");
-      var detail = document.getElementById(targetId);
-      if (!detail) return;
-
-      var expanded = btn.getAttribute("aria-expanded") === "true";
-      btn.setAttribute("aria-expanded", !expanded);
-      detail.hidden = expanded;
-      btn.querySelector("span").textContent = expanded ? "عرض التفاصيل" : "إخفاء التفاصيل";
+  /* ── Hero particles parallax ── */
+  var particles = document.querySelectorAll(".particle");
+  if (particles.length > 0 && !reduceMotion) {
+    document.addEventListener("mousemove", function (e) {
+      var x = (e.clientX / window.innerWidth - 0.5) * 20;
+      var y = (e.clientY / window.innerHeight - 0.5) * 20;
+      particles.forEach(function (p, i) {
+        var factor = (i + 1) * 0.3;
+        p.style.transform = "translate(" + (x * factor) + "px, " + (y * factor) + "px)";
+      });
     });
-  });
+  }
 
   /* ── Footer year ── */
   var yearEl = document.querySelector("[data-year]");
