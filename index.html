@@ -3,575 +3,546 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>تركي الدريس — Operations Director</title>
-  <meta name="description" content="تركي فهد الدريس — مدير عمليات في قطاع الفعاليات">
-  <meta name="theme-color" content="#08080c">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23e8a400'/%3E%3Ctext x='32' y='44' font-size='34' font-family='Arial' text-anchor='middle' fill='%2308080c'%3Eت%3C/text%3E%3C/svg%3E">
+  <title>تركي الدريس — مدير عمليات الفعاليات | Call Sheet</title>
+  <meta name="description" content="تركي فهد الدريس — مدير عمليات في قطاع الفعاليات، الرياض. من غرفة التخطيط إلى خشبة المسرح.">
+  <meta name="theme-color" content="#FAF7F1">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%230F4A34'/%3E%3Cpath d='M32 12l5 15 15 5-15 5-5 15-5-15-15-5 15-5z' fill='%23A9812E'/%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Noto+Kufi+Arabic:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&family=Almarai:wght@300;400;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
 
+  <a href="#plan" class="skip-link">تجاوز إلى المحتوى</a>
+  <div class="show-progress" aria-hidden="true"><span id="progressBar"></span></div>
+
   <header class="nav" id="top">
     <div class="nav-inner">
-      <a href="#top" class="brand">
-        <span class="brand-symbol">◆</span>
+      <a href="#top" class="brand" aria-label="تركي الدريس — البداية">
+        <svg class="brand-star" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="currentColor"/>
+        </svg>
         <span class="brand-name">تركي الدريس</span>
+        <span class="brand-tag">OPS</span>
       </a>
-      <nav class="nav-links">
-        <a href="#planning">Planning</a>
-        <a href="#wall">The Wall</a>
-        <a href="#stage">Stage</a>
-        <a href="#connect">Connect</a>
+
+      <nav class="nav-links" aria-label="التنقل الرئيسي">
+        <a href="#plan">الخطة</a>
+        <a href="#wall">الجدار</a>
+        <a href="#stage">المسرح</a>
+        <a href="#connect">تواصل</a>
       </nav>
+
+      <div class="nav-clock" aria-label="توقيت الرياض">
+        <span class="clock-dot"></span>
+        <span class="clock-label">الرياض</span>
+        <time class="clock-time" id="riyadhClock" dir="ltr">--:--:--</time>
+      </div>
     </div>
   </header>
 
   <main>
 
-    <!-- ════════════════════════════════════════ -->
-    <!-- 1. HERO + LAYOUT PLANNING               -->
-    <!-- ════════════════════════════════════════ -->
-    <section class="hero" id="planning">
-      <div class="hero-grid-bg" aria-hidden="true"></div>
-      <div class="hero-noise" aria-hidden="true"></div>
+    <!-- ══════════════════════════════════════
+         01 · CALL SHEET — ورقة التشغيل
+    ═══════════════════════════════════════ -->
+    <section class="hero" aria-label="التعريف">
+      <div class="hero-paper" aria-hidden="true"></div>
 
       <div class="container">
-        <div class="hero-top">
-          <div class="hero-badge">
-            <span class="badge-dot"></span> OPERATIONS DIRECTOR
-          </div>
-          <h1 class="hero-title">
-            <span class="hero-ar">تركي الدريس</span>
-            <span class="hero-en">Turki Al-Dress</span>
-          </h1>
-          <p class="hero-sub">إدارة عمليات الفعاليات — من غرفة التخطيط إلى خشبة المسرح</p>
+        <div class="doc-strip reveal" dir="ltr">
+          <span class="doc-cell doc-title">CALL SHEET — ورقة التشغيل</span>
+          <span class="doc-cell">REV <bdi>04</bdi></span>
+          <span class="doc-cell">RIYADH / KSA</span>
+          <span class="doc-cell doc-live"><span class="live-dot"></span> OPS RUNNING</span>
         </div>
 
-        <!-- Planning Board -->
-        <div class="planning-board">
-          <div class="board-header">
-            <div class="board-title">
-              <span class="board-icon">≣</span>
-              <span>MASTER OPERATIONS PLAN — الرياض</span>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <p class="hero-kicker reveal">
+              <svg class="kicker-star" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 1l2.6 8.4L23 12l-8.4 2.6L12 23l-2.6-8.4L1 12l8.4-2.6z" fill="currentColor"/></svg>
+              مدير عمليات الفعاليات — الرياض، المملكة العربية السعودية
+            </p>
+
+            <h1 class="hero-name reveal" style="--d:.08s">تركي الدريس</h1>
+
+            <p class="hero-latin reveal" style="--d:.16s" dir="ltr">TURKI AL-DRESS · OPERATIONS DIRECTOR</p>
+
+            <p class="hero-lede reveal" style="--d:.24s">
+              أُدير عمليات الفعاليات الكبرى من أول اجتماع تنسيقي حتى آخر شاحنة تغادر الموقع —
+              لوجستيات، أمن وسلامة، إنتاج، وتحكم كامل بغرفة العمليات.
+            </p>
+
+            <div class="hero-cta reveal" style="--d:.32s">
+              <a href="#connect" class="btn btn-primary">
+                ابدأ فعاليتك القادمة
+                <span class="btn-arrow" aria-hidden="true">←</span>
+              </a>
+              <a href="#plan" class="btn btn-ghost">استعرض خطة التشغيل</a>
             </div>
-            <div class="board-status">
-              <span class="status-dot status-live"></span> LIVE
-            </div>
+
+            <dl class="hero-stats reveal" style="--d:.4s">
+              <div class="stat">
+                <dt>سنوات تشغيل</dt>
+                <dd><span class="stat-num" data-count="6">0</span><span class="stat-plus">+</span></dd>
+              </div>
+              <div class="stat">
+                <dt>مورد مُدار</dt>
+                <dd><span class="stat-num" data-count="200">0</span><span class="stat-plus">+</span></dd>
+              </div>
+              <div class="stat">
+                <dt>فعالية كبرى</dt>
+                <dd><span class="stat-num" data-count="9">0</span></dd>
+              </div>
+              <div class="stat">
+                <dt>ضيف في الليلة</dt>
+                <dd><span class="stat-num" data-count="1200">0</span></dd>
+              </div>
+            </dl>
           </div>
 
-          <div class="board-grid">
-            <div class="dept-card dept-green">
-              <div class="dept-head">
-                <span class="dept-icon">▣</span>
-                <span class="dept-name">اللوجستيات</span>
-                <span class="dept-status">مكتمل</span>
-              </div>
-              <div class="dept-bar"><span style="width:92%"></span></div>
-              <div class="dept-info">
-                <span>النقل: 12 حافلة</span>
-                <span>الإمداد: 95%</span>
-              </div>
-            </div>
+          <div class="hero-seal reveal" style="--d:.2s" aria-hidden="true">
+            <svg class="seal" viewBox="0 0 220 220">
+              <defs>
+                <path id="sealArc" d="M110,110 m-84,0 a84,84 0 1,1 168,0 a84,84 0 1,1 -168,0"/>
+                <radialGradient id="sealGrad" cx="50%" cy="40%" r="70%">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#f0e7d3"/>
+                </radialGradient>
+                <linearGradient id="cardGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#ffffff"/>
+                  <stop offset="100%" stop-color="#f1e9d6"/>
+                </linearGradient>
+                <radialGradient id="holoGrad" cx="35%" cy="35%" r="75%">
+                  <stop offset="0%" stop-color="#d9e8df"/>
+                  <stop offset="45%" stop-color="#8fb8a0"/>
+                  <stop offset="75%" stop-color="#c9a95c"/>
+                  <stop offset="100%" stop-color="#7fa38c"/>
+                </radialGradient>
+              </defs>
 
-            <div class="dept-card dept-gold">
-              <div class="dept-head">
-                <span class="dept-icon">✦</span>
-                <span class="dept-name">الأمن والسلامة</span>
-                <span class="dept-status">قيد التنفيذ</span>
-              </div>
-              <div class="dept-bar"><span style="width:68%"></span></div>
-              <div class="dept-info">
-                <span>نقاط التفتيش: 8</span>
-                <span>الفريق: 45 فرد</span>
-              </div>
-            </div>
+              <circle cx="110" cy="110" r="106" class="seal-ring"/>
 
-            <div class="dept-card dept-red">
-              <div class="dept-head">
-                <span class="dept-icon">◆</span>
-                <span class="dept-name">الإنتاج والمسرح</span>
-                <span class="dept-status">حرج</span>
-              </div>
-              <div class="dept-bar"><span style="width:41%"></span></div>
-              <div class="dept-info">
-                <span>AVL: قيد التركيب</span>
-                <span>الجدول: +2 يوم</span>
-              </div>
-            </div>
+              <g class="seal-ticks" aria-hidden="true">
+                <circle cx="110" cy="110" r="57" class="seal-ticks-minor"/>
+                <circle cx="110" cy="110" r="57" class="seal-ticks-major"/>
+              </g>
 
-            <div class="dept-card dept-blue">
-              <div class="dept-head">
-                <span class="dept-icon">◈</span>
-                <span class="dept-name">التسويق والضيافة</span>
-                <span class="dept-status">مكتمل</span>
-              </div>
-              <div class="dept-bar"><span style="width:88%"></span></div>
-              <div class="dept-info">
-                <span>الضيوف: 1200</span>
-                <span>الاستضافة: جاهز</span>
-              </div>
-            </div>
+              <circle cx="110" cy="110" r="64" class="seal-ring"/>
 
-            <div class="dept-card dept-purple">
-              <div class="dept-head">
-                <span class="dept-icon">◉</span>
-                <span class="dept-name">التقنية والتحكم</span>
-                <span class="dept-status">قيد التنفيذ</span>
-              </div>
-              <div class="dept-bar"><span style="width:55%"></span></div>
-              <div class="dept-info">
-                <span>C&C: قيد التشغيل</span>
-                <span>الأنظمة: اختبار</span>
-              </div>
-            </div>
+              <g class="seal-text">
+                <text><textPath href="#sealArc">EVENT OPERATIONS ✦ RIYADH, KSA ✦ TURKI AL-DRESS ✦ SHOW NIGHT ✦ CALL SHEET ✦</textPath></text>
+              </g>
 
-            <div class="dept-card dept-amber">
-              <div class="dept-head">
-                <span class="dept-icon">▣</span>
-                <span class="dept-name">المواهب والفنانين</span>
-                <span class="dept-status">مكتمل</span>
-              </div>
-              <div class="dept-bar"><span style="width:100%"></span></div>
-              <div class="dept-info">
-                <span>الفنانين: 8</span>
-                <span>الجدول: مؤكد</span>
-              </div>
-            </div>
+              <g class="seal-cardinal" aria-hidden="true">
+                <rect x="106.5" y="42.5" width="7" height="7" transform="rotate(45 110 46)"/>
+                <rect x="170.5" y="106.5" width="7" height="7" transform="rotate(45 174 110)"/>
+                <rect x="106.5" y="170.5" width="7" height="7" transform="rotate(45 110 174)"/>
+                <rect x="42.5" y="106.5" width="7" height="7" transform="rotate(45 46 110)"/>
+              </g>
+
+              <circle cx="110" cy="110" r="63" class="seal-halo"/>
+
+              <g class="seal-badge" aria-hidden="true">
+                <path class="badge-strap" d="M92 50 L106 68"/>
+                <path class="badge-strap" d="M128 50 L114 68"/>
+                <rect class="badge-clip" x="103" y="65" width="14" height="9" rx="2"/>
+
+                <g class="badge-card">
+                  <rect class="badge-card-bg" x="82" y="74" width="56" height="78" rx="5"/>
+                  <rect class="badge-slot" x="101" y="79" width="18" height="4" rx="2"/>
+
+                  <rect class="badge-band" x="83" y="88" width="54" height="11"/>
+                  <text class="badge-band-text" x="110" y="95.6" direction="ltr">STAFF · OPS</text>
+
+                  <circle class="badge-photo" cx="95" cy="112" r="7.5"/>
+                  <circle class="badge-photo-head" cx="95" cy="109.6" r="2.7"/>
+                  <path class="badge-photo-body" d="M90.2 117.4 a4.8 3.4 0 0 1 9.6 0 Z"/>
+
+                  <text class="badge-name" x="120" y="113" direction="ltr">TR</text>
+                  <rect class="badge-line" x="107" y="117" width="25" height="2.2" rx="1.1"/>
+                  <rect class="badge-line badge-line-2" x="107" y="121" width="17" height="2.2" rx="1.1"/>
+
+                  <g class="badge-zones">
+                    <rect x="88" y="126" width="7" height="7" rx="1.6" class="zone zone-a"/>
+                    <text x="91.5" y="131.2" class="zone-letter">A</text>
+                    <rect x="98" y="126" width="7" height="7" rx="1.6" class="zone zone-b"/>
+                    <text x="101.5" y="131.2" class="zone-letter">B</text>
+                    <rect x="108" y="126" width="7" height="7" rx="1.6" class="zone zone-c"/>
+                    <text x="111.5" y="131.2" class="zone-letter">C</text>
+                  </g>
+
+                  <circle class="badge-holo" cx="129" cy="129.5" r="4.2"/>
+
+                  <g class="badge-barcode">
+                    <rect x="88" y="137" width="1.5" height="10"/>
+                    <rect x="91" y="137" width="1" height="10"/>
+                    <rect x="93.5" y="137" width="2.2" height="10"/>
+                    <rect x="97" y="137" width="1" height="10"/>
+                    <rect x="99.5" y="137" width="1.6" height="10"/>
+                    <rect x="102.5" y="137" width="1" height="10"/>
+                    <rect x="105" y="137" width="2.4" height="10"/>
+                    <rect x="109" y="137" width="1" height="10"/>
+                    <rect x="111.5" y="137" width="1.4" height="10"/>
+                    <rect x="114.5" y="137" width="2" height="10"/>
+                    <rect x="118" y="137" width="1" height="10"/>
+                    <rect x="120.5" y="137" width="1.6" height="10"/>
+                    <rect x="123.5" y="137" width="1" height="10"/>
+                    <rect x="126" y="137" width="2.2" height="10"/>
+                    <rect x="129.5" y="137" width="1.2" height="10"/>
+                  </g>
+                  <rect class="badge-scan" x="86" y="135.5" width="1.6" height="13" rx="0.8"/>
+                </g>
+              </g>
+            </svg>
+            <span class="seal-stamp">معتمد ✓</span>
           </div>
+        </div>
+      </div>
 
-          <div class="board-footer">
-            <div class="board-meta">
-              <span>موسم الرياض 2025</span>
-              <span>·</span>
-              <span>المركز الوطني للفعاليات</span>
+      <div class="ticker" dir="ltr" aria-label="سجل الفعاليات">
+        <div class="ticker-track">
+          <span class="ticker-item">موسم الرياض — المقر الرئيسي ✓</span>
+          <span class="ticker-item">مهرجان البحر الأحمر السينمائي ✓</span>
+          <span class="ticker-item">شعلة الألعاب السعودية ✓</span>
+          <span class="ticker-item"><bdi>24FINTECH</bdi> ✓</span>
+          <span class="ticker-item">معرض الدفاع العالمي</span>
+          <span class="ticker-item">فاينل فانتازي</span>
+          <span class="ticker-item">اليونسكو</span>
+          <span class="ticker-item">موسم رمضان ١٤٤٦</span>
+          <span class="ticker-item">موسم عسير</span>
+          <span class="ticker-item">نادي الصقور السعودي</span>
+          <span class="ticker-item" aria-hidden="true">موسم الرياض — المقر الرئيسي ✓</span>
+          <span class="ticker-item" aria-hidden="true">مهرجان البحر الأحمر السينمائي ✓</span>
+          <span class="ticker-item" aria-hidden="true">شعلة الألعاب السعودية ✓</span>
+          <span class="ticker-item" aria-hidden="true"><bdi>24FINTECH</bdi> ✓</span>
+          <span class="ticker-item" aria-hidden="true">معرض الدفاع العالمي</span>
+          <span class="ticker-item" aria-hidden="true">فاينل فانتازي</span>
+          <span class="ticker-item" aria-hidden="true">اليونسكو</span>
+          <span class="ticker-item" aria-hidden="true">موسم رمضان ١٤٤٦</span>
+          <span class="ticker-item" aria-hidden="true">موسم عسير</span>
+          <span class="ticker-item" aria-hidden="true">نادي الصقور السعودي</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════
+         02 · MASTER PLAN — الخطة الرئيسية
+    ═══════════════════════════════════════ -->
+    <section class="plan-section" id="plan" aria-labelledby="plan-title">
+      <div class="container">
+        <div class="sec-head reveal">
+          <p class="sec-eyebrow"><span dir="ltr">02 / MASTER PLAN</span></p>
+          <h2 class="sec-title" id="plan-title">الخطة الرئيسية للتشغيل</h2>
+          <p class="sec-desc">لوحة جاهزية الأقسام كما تظهر في غرفة العمليات — أرقام حقيقية من إدارة موسم كامل.</p>
+        </div>
+
+        <div class="plan-grid">
+          <aside class="plan-summary reveal">
+            <p class="summary-label">الجاهزية العامة</p>
+            <p class="summary-num"><span class="stat-num" data-count="74">0</span><span class="summary-pct">٪</span></p>
+            <div class="summary-bar"><span data-width="74"></span></div>
+            <p class="summary-note">متوسط اكتمال ٦ أقسام تشغيلية — التحديث كل صباح قبل اجتماع الـ <bdi dir="ltr">09:00</bdi>.</p>
+
+            <ol class="phase-list">
+              <li class="phase done"><span class="phase-dot"></span> التخطيط والتراخيص</li>
+              <li class="phase done"><span class="phase-dot"></span> التوريد والعقود</li>
+              <li class="phase now"><span class="phase-dot"></span> التنفيذ والتركيبات</li>
+              <li class="phase"><span class="phase-dot"></span> البروفات</li>
+              <li class="phase"><span class="phase-dot"></span> الافتتاح والتسليم</li>
+            </ol>
+          </aside>
+
+          <div class="dept-ledger reveal" style="--d:.1s">
+            <div class="ledger-row" style="--accent:var(--ok)">
+              <div class="ledger-id"><span class="ledger-sq"></span><span class="ledger-name">اللوجستيات</span><span class="ledger-pill">مكتمل</span></div>
+              <div class="ledger-bar"><span data-width="92"></span></div>
+              <div class="ledger-meta"><span dir="ltr">92%</span><span class="ledger-sep">·</span><span>12 حافلة نقل</span><span class="ledger-sep">·</span><span>إمداد 95%</span></div>
             </div>
-            <div class="board-timeline">
-              <span class="tl-dot done"></span>
-              <span class="tl-dot done"></span>
-              <span class="tl-dot done"></span>
-              <span class="tl-dot active"></span>
-              <span class="tl-dot"></span>
-              <span class="tl-dot"></span>
-              <span class="tl-dot"></span>
+
+            <div class="ledger-row" style="--accent:var(--amber)">
+              <div class="ledger-id"><span class="ledger-sq"></span><span class="ledger-name">الأمن والسلامة</span><span class="ledger-pill">قيد التنفيذ</span></div>
+              <div class="ledger-bar"><span data-width="68"></span></div>
+              <div class="ledger-meta"><span dir="ltr">68%</span><span class="ledger-sep">·</span><span>8 نقاط تفتيش</span><span class="ledger-sep">·</span><span>45 فرد أمن</span></div>
+            </div>
+
+            <div class="ledger-row" style="--accent:var(--signal-red)">
+              <div class="ledger-id"><span class="ledger-sq"></span><span class="ledger-name">الإنتاج والمسرح</span><span class="ledger-pill pill-hot">حرج</span></div>
+              <div class="ledger-bar"><span data-width="41"></span></div>
+              <div class="ledger-meta"><span dir="ltr">41%</span><span class="ledger-sep">·</span><span><bdi>AVL</bdi> قيد التركيب</span><span class="ledger-sep">·</span><span>الجدول +2 يوم</span></div>
+            </div>
+
+            <div class="ledger-row" style="--accent:var(--green)">
+              <div class="ledger-id"><span class="ledger-sq"></span><span class="ledger-name">التسويق والضيافة</span><span class="ledger-pill">مكتمل</span></div>
+              <div class="ledger-bar"><span data-width="88"></span></div>
+              <div class="ledger-meta"><span dir="ltr">88%</span><span class="ledger-sep">·</span><span>1200 ضيف</span><span class="ledger-sep">·</span><span>الاستضافة جاهزة</span></div>
+            </div>
+
+            <div class="ledger-row" style="--accent:var(--bronze)">
+              <div class="ledger-id"><span class="ledger-sq"></span><span class="ledger-name">التقنية والتحكم</span><span class="ledger-pill">قيد التنفيذ</span></div>
+              <div class="ledger-bar"><span data-width="55"></span></div>
+              <div class="ledger-meta"><span dir="ltr">55%</span><span class="ledger-sep">·</span><span>غرفة <bdi>C&amp;C</bdi> قيد التشغيل</span><span class="ledger-sep">·</span><span>اختبار الأنظمة</span></div>
+            </div>
+
+            <div class="ledger-row" style="--accent:var(--ok)">
+              <div class="ledger-id"><span class="ledger-sq"></span><span class="ledger-name">المواهب والفنانين</span><span class="ledger-pill">مكتمل</span></div>
+              <div class="ledger-bar"><span data-width="100"></span></div>
+              <div class="ledger-meta"><span dir="ltr">100%</span><span class="ledger-sep">·</span><span>8 فنانين</span><span class="ledger-sep">·</span><span>الجداول مؤكدة</span></div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════ -->
-    <!-- 2. THE WALL — Timeline + To-Do          -->
-    <!-- ════════════════════════════════════════ -->
-    <section class="wall-section" id="wall">
+    <!-- ══════════════════════════════════════
+         03 · THE WALL — جدار العمليات
+    ═══════════════════════════════════════ -->
+    <section class="wall-section" id="wall" aria-labelledby="wall-title">
       <div class="container">
-        <div class="sec-label-bar">
-          <span class="sec-num">02</span>
-          <span class="sec-label">THE WALL</span>
-          <span class="sec-line"></span>
+        <div class="sec-head reveal">
+          <p class="sec-eyebrow"><span dir="ltr">03 / THE WALL</span></p>
+          <h2 class="sec-title" id="wall-title">جدار العمليات</h2>
+          <p class="sec-desc">الجدول الزمني، المهام العاجلة، وقائمة الإنجاز — كما تُدار الكواليس يومًا بيوم.</p>
         </div>
-        <h2 class="sec-title">غرفة العمليات</h2>
-        <p class="sec-desc">جدول زمني ومهام تشغيلية — كما تُدار الكواليس</p>
-      </div>
 
-      <!-- Timeline Rail -->
-      <div class="timeline-rail">
-        <div class="container">
-          <div class="rail-scroll">
-            <div class="rail-base"></div>
-
+        <div class="rail-wrap reveal">
+          <div class="rail" tabindex="0" aria-label="الجدول الزمني — ٦ أسابيع">
+            <div class="rail-line" aria-hidden="true"></div>
             <div class="rail-node done">
-              <span class="node-dot"></span>
-              <div class="node-content">
-                <span class="node-date">الأسبوع 1</span>
-                <strong>التخطيط الأولي</strong>
-                <span class="node-check">✓</span>
-              </div>
+              <span class="rail-dot"></span>
+              <span class="rail-week" dir="ltr">W1</span>
+              <strong>التخطيط الأولي</strong>
+              <span class="rail-flag">✓ منجز</span>
             </div>
-
             <div class="rail-node done">
-              <span class="node-dot"></span>
-              <div class="node-content">
-                <span class="node-date">الأسبوع 2</span>
-                <strong>تدقيق الموردين</strong>
-                <span class="node-check">✓</span>
-              </div>
+              <span class="rail-dot"></span>
+              <span class="rail-week" dir="ltr">W2</span>
+              <strong>تدقيق الموردين</strong>
+              <span class="rail-flag">✓ منجز</span>
             </div>
-
             <div class="rail-node done">
-              <span class="node-dot"></span>
-              <div class="node-content">
-                <span class="node-date">الأسبوع 3</span>
-                <strong>التراخيص</strong>
-                <span class="node-check">✓</span>
-              </div>
+              <span class="rail-dot"></span>
+              <span class="rail-week" dir="ltr">W3</span>
+              <strong>التراخيص</strong>
+              <span class="rail-flag">✓ منجز</span>
             </div>
-
-            <div class="rail-node active">
-              <span class="node-dot"></span>
-              <div class="node-content">
-                <span class="node-date">الأسبوع 4</span>
-                <strong>التركيبات</strong>
-                <span class="node-progress">%68</span>
-              </div>
+            <div class="rail-node now">
+              <span class="rail-dot"></span>
+              <span class="rail-week" dir="ltr">W4</span>
+              <strong>التركيبات</strong>
+              <span class="rail-flag flag-now">68%</span>
             </div>
-
             <div class="rail-node">
-              <span class="node-dot"></span>
-              <div class="node-content">
-                <span class="node-date">الأسبوع 5</span>
-                <strong>البروفات</strong>
-              </div>
+              <span class="rail-dot"></span>
+              <span class="rail-week" dir="ltr">W5</span>
+              <strong>البروفات</strong>
+              <span class="rail-flag flag-next">التالي</span>
             </div>
-
             <div class="rail-node">
-              <span class="node-dot"></span>
-              <div class="node-content">
-                <span class="node-date">الأسبوع 6</span>
-                <strong>الافتتاح</strong>
-              </div>
+              <span class="rail-dot"></span>
+              <span class="rail-week" dir="ltr">W6</span>
+              <strong>الافتتاح</strong>
+              <span class="rail-flag flag-next">العرض</span>
             </div>
           </div>
+          <p class="rail-hint">↔ اسحب لاستعراض الأسابيع</p>
         </div>
-      </div>
 
-      <!-- Creative Wall - To-Do Board -->
-      <div class="wall-board">
-        <div class="container">
-          <div class="wall-grid">
-            <!-- To-Do List Column -->
-            <div class="wall-column">
-              <div class="wall-col-head">
-                <span class="col-dot red"></span>
-                <span>عاجل</span>
-                <span class="col-count">3</span>
-              </div>
-              <div class="note note-yellow">
-                <div class="note-pin"></div>
-                <div class="note-header">
-                  <span class="note-tag tag-red">حرج</span>
-                  <span class="note-prio">P1</span>
-                </div>
-                <p class="note-text">إنهاء تركيب شاشات LED — المسرح الرئيسي</p>
-                <div class="note-footer">
-                  <span class="note-assign">◎ فريق الإنتاج</span>
-                  <span class="note-due">غدًا</span>
-                </div>
-              </div>
+        <div class="wall-grid">
+          <div class="wall-col reveal">
+            <h3 class="col-head"><span class="col-dot dot-red"></span> عاجل <span class="col-count" dir="ltr">3</span></h3>
 
-              <div class="note note-pink">
-                <div class="note-pin"></div>
-                <div class="note-header">
-                  <span class="note-tag tag-orange">متوسط</span>
-                  <span class="note-prio">P2</span>
-                </div>
-                <p class="note-text">اعتماد قائمة ضيوف VIP — أمن الدخول</p>
-                <div class="note-footer">
-                  <span class="note-assign">◎ العلاقات</span>
-                  <span class="note-due">بعد غد</span>
-                </div>
-              </div>
+            <article class="note note-a">
+              <span class="note-pin" aria-hidden="true"></span>
+              <div class="note-top"><span class="note-tag tag-hot">حرج</span><span class="note-prio" dir="ltr">P1</span></div>
+              <p class="note-text">إنهاء تركيب شاشات <bdi>LED</bdi> — المسرح الرئيسي</p>
+              <div class="note-bottom"><span>فريق الإنتاج</span><span class="note-due">الغد</span></div>
+            </article>
 
-              <div class="note note-green">
-                <div class="note-pin"></div>
-                <div class="note-header">
-                  <span class="note-tag tag-blue">تشغيل</span>
-                  <span class="note-prio">P3</span>
-                </div>
-                <p class="note-text">تجهيز غرفة القيادة والتحكم C&C</p>
-                <div class="note-footer">
-                  <span class="note-assign">◎ التقنية</span>
-                  <span class="note-due">3 أيام</span>
-                </div>
-              </div>
+            <article class="note note-b">
+              <span class="note-pin" aria-hidden="true"></span>
+              <div class="note-top"><span class="note-tag tag-mid">متوسط</span><span class="note-prio" dir="ltr">P2</span></div>
+              <p class="note-text">اعتماد قائمة ضيوف <bdi>VIP</bdi> — أمن الدخول</p>
+              <div class="note-bottom"><span>العلاقات</span><span class="note-due">بعد غد</span></div>
+            </article>
+
+            <article class="note note-c">
+              <span class="note-pin" aria-hidden="true"></span>
+              <div class="note-top"><span class="note-tag tag-ops">تشغيل</span><span class="note-prio" dir="ltr">P3</span></div>
+              <p class="note-text">تجهيز غرفة القيادة والتحكم <bdi>C&amp;C</bdi></p>
+              <div class="note-bottom"><span>التقنية</span><span class="note-due">3 أيام</span></div>
+            </article>
+          </div>
+
+          <div class="wall-col reveal" style="--d:.1s">
+            <h3 class="col-head"><span class="col-dot dot-bronze"></span> مخطط الفعالية</h3>
+            <div class="mood-grid">
+              <div class="mood mood-stage"><span class="mood-glyph">▤</span><div class="mood-info"><strong>خشبة المسرح</strong><small>التصميم النهائي</small></div></div>
+              <div class="mood mood-light"><span class="mood-glyph">✳</span><div class="mood-info"><strong>الإضاءة</strong><small dir="ltr">180 fixture</small></div></div>
+              <div class="mood mood-sound"><span class="mood-glyph">♪</span><div class="mood-info"><strong>الصوت</strong><small dir="ltr">L-Acoustics K2</small></div></div>
+              <div class="mood mood-vip"><span class="mood-glyph">✦</span><div class="mood-info"><strong>منطقة VIP</strong><small>الضيافة</small></div></div>
             </div>
+          </div>
 
-            <!-- Middle - Photos / Moodboard -->
-            <div class="wall-column wall-column-wide">
-              <div class="wall-col-head">
-                <span class="col-dot blue"></span>
-                <span>مخطط الفعالية</span>
-              </div>
+          <div class="wall-col reveal" style="--d:.2s">
+            <h3 class="col-head"><span class="col-dot dot-green"></span> قائمة الإنجاز <span class="col-count"><span id="todoDone">4</span>/7</span></h3>
+            <div class="todo-bar"><span id="todoBar" data-width="57"></span></div>
+            <p class="todo-hint">اضغط أي مهمة لتبديل حالتها</p>
 
-              <div class="mood-grid">
-                <div class="mood-card mood-stage">
-                  <div class="mood-overlay">
-                    <span>خشبة المسرح</span>
-                    <small>التصميم النهائي</small>
-                  </div>
-                </div>
-                <div class="mood-card mood-lighting">
-                  <div class="mood-overlay">
-                    <span>الإضاءة</span>
-                    <small>180 fixture</small>
-                  </div>
-                </div>
-                <div class="mood-card mood-sound">
-                  <div class="mood-overlay">
-                    <span>الصوت</span>
-                    <small>L-Acoustics K2</small>
-                  </div>
-                </div>
-                <div class="mood-card mood-vip">
-                  <div class="mood-overlay">
-                    <span>منطقة VIP</span>
-                    <small>الضيافة</small>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Checklist Column -->
-            <div class="wall-column">
-              <div class="wall-col-head">
-                <span class="col-dot gold"></span>
-                <span>قائمة الإنجاز</span>
-                <span class="col-count">4/7</span>
-              </div>
-
-              <div class="todo-item done">
-                <span class="todo-check">✓</span>
-                <span class="todo-text">اعتماد الميزانية النهائية</span>
-              </div>
-              <div class="todo-item done">
-                <span class="todo-check">✓</span>
-                <span class="todo-text">توقيع عقود الموردين</span>
-              </div>
-              <div class="todo-item done">
-                <span class="todo-check">✓</span>
-                <span class="todo-text">تأمين التصاريح الحكومية</span>
-              </div>
-              <div class="todo-item done">
-                <span class="todo-check">✓</span>
-                <span class="todo-text">جدولة الفرق الميدانية</span>
-              </div>
-              <div class="todo-item">
-                <span class="todo-check todo-pending">○</span>
-                <span class="todo-text">اختبار أنظمة الصوت</span>
-              </div>
-              <div class="todo-item">
-                <span class="todo-check todo-pending">○</span>
-                <span class="todo-text">بروفة الإضاءة</span>
-              </div>
-              <div class="todo-item">
-                <span class="todo-check todo-pending">○</span>
-                <span class="todo-text">التسليم النهائي</span>
-              </div>
-            </div>
+            <ul class="todo-list" id="todoList">
+              <li><button class="todo" data-done="true" aria-pressed="true"><span class="todo-box">✓</span><span class="todo-txt">اعتماد الميزانية النهائية</span></button></li>
+              <li><button class="todo" data-done="true" aria-pressed="true"><span class="todo-box">✓</span><span class="todo-txt">توقيع عقود الموردين</span></button></li>
+              <li><button class="todo" data-done="true" aria-pressed="true"><span class="todo-box">✓</span><span class="todo-txt">تأمين التصاريح الحكومية</span></button></li>
+              <li><button class="todo" data-done="true" aria-pressed="true"><span class="todo-box">✓</span><span class="todo-txt">جدولة الفرق الميدانية</span></button></li>
+              <li><button class="todo" data-done="false" aria-pressed="false"><span class="todo-box">✓</span><span class="todo-txt">اختبار أنظمة الصوت</span></button></li>
+              <li><button class="todo" data-done="false" aria-pressed="false"><span class="todo-box">✓</span><span class="todo-txt">بروفة الإضاءة</span></button></li>
+              <li><button class="todo" data-done="false" aria-pressed="false"><span class="todo-box">✓</span><span class="todo-txt">التسليم النهائي</span></button></li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════ -->
-    <!-- 3. STAGE — AVL + Content                -->
-    <!-- ════════════════════════════════════════ -->
-    <section class="stage-section" id="stage">
+    <!-- ══════════════════════════════════════
+         04 · SHOW NIGHT — خشبة المسرح
+    ═══════════════════════════════════════ -->
+    <section class="stage-section" id="stage" aria-labelledby="stage-title">
       <div class="container">
-        <div class="sec-label-bar">
-          <span class="sec-num">03</span>
-          <span class="sec-label">STAGE</span>
-          <span class="sec-line"></span>
+        <div class="sec-head sec-head-dark reveal">
+          <p class="sec-eyebrow"><span dir="ltr">04 / SHOW NIGHT</span></p>
+          <h2 class="sec-title" id="stage-title">ليلة العرض</h2>
+          <p class="sec-desc">المشاريع المنفّذة — تُعرض على جدار <bdi>LED</bdi> كما تُعرض على خشبة المسرح.</p>
         </div>
-        <h2 class="sec-title">المسرح والمعدات</h2>
-        <p class="sec-desc">المشاريع المنفذة — كما تُعرض على خشبة المسرح</p>
-      </div>
 
-      <!-- Stage Visual -->
-      <div class="stage-visual">
-        <div class="stage-container">
-          <!-- Truss / Lighting Rig -->
-          <div class="truss">
-            <div class="truss-bar">
-              <div class="light l1"></div>
-              <div class="light l2"></div>
-              <div class="light l3"></div>
-              <div class="light l4"></div>
-              <div class="light l5"></div>
-              <div class="light l6"></div>
-            </div>
-            <div class="truss-bar truss-back">
-              <div class="light l7 p200"></div>
-              <div class="light l8 p200"></div>
-              <div class="light l9 p200"></div>
-            </div>
-          </div>
+        <div class="stage-wrap reveal">
+          <div class="stage" id="stageBox">
+            <div class="stage-spot" aria-hidden="true"></div>
 
-          <!-- LED Screen / Backdrop -->
-          <div class="led-wall">
-            <div class="led-content">
-              <div class="led-slide active" id="slide-1">
-                <span class="led-icon">◈</span>
+            <div class="truss" aria-hidden="true">
+              <div class="truss-bar">
+                <span class="fx fx-1"></span><span class="fx fx-2"></span><span class="fx fx-3"></span>
+                <span class="fx fx-4"></span><span class="fx fx-5"></span><span class="fx fx-6"></span>
+              </div>
+            </div>
+
+            <div class="pa pa-l" aria-hidden="true"><span></span><span></span><span></span></div>
+            <div class="pa pa-r" aria-hidden="true"><span></span><span></span><span></span></div>
+
+            <div class="led" role="group" aria-roledescription="شرائح المشاريع" aria-live="polite">
+              <div class="led-slide is-on" data-cue="1">
+                <span class="led-kicker" dir="ltr">PROJECT 01 — 2022/2023</span>
                 <h3>موسم الرياض</h3>
-                <p>2022–2023 · المقر الرئيسي</p>
-                <div class="led-stats">
-                  <span>200+ مورد</span>
-                  <span>سنتان</span>
-                  <span>NEC</span>
-                </div>
+                <p>المقر الرئيسي — اعتماد وتنسيق عمليات</p>
+                <div class="led-chips"><span>+200 مورد</span><span>موسمان</span><span dir="ltr">NEC</span></div>
               </div>
-              <div class="led-slide" id="slide-2">
-                <span class="led-icon">✦</span>
+              <div class="led-slide" data-cue="2">
+                <span class="led-kicker" dir="ltr">PROJECT 02 — 2023/2024</span>
                 <h3>مهرجان البحر الأحمر</h3>
-                <p>2023–2024 · جدة</p>
-                <div class="led-stats">
-                  <span>دولي</span>
-                  <span>ECR</span>
-                  <span>أمن</span>
-                </div>
+                <p>جدة — عمليات دولية بسجادة حمراء</p>
+                <div class="led-chips"><span>دولي</span><span dir="ltr">ECR</span><span>أمن الضيوف</span></div>
               </div>
-              <div class="led-slide" id="slide-3">
-                <span class="led-icon">◆</span>
+              <div class="led-slide" data-cue="3">
+                <span class="led-kicker" dir="ltr">PROJECT 03 — 2023</span>
                 <h3>شعلة الألعاب السعودية</h3>
-                <p>2023 · مسار وطني</p>
-                <div class="led-stats">
-                  <span>لوجستيات</span>
-                  <span>فرق</span>
-                  <span>وطني</span>
-                </div>
+                <p>مسار وطني متنقل — لوجستيات الفرق</p>
+                <div class="led-chips"><span>لوجستيات</span><span>فرق متنقلة</span><span>وطني</span></div>
               </div>
-              <div class="led-slide" id="slide-4">
-                <span class="led-icon">▣</span>
-                <h3>24FINTECH</h3>
-                <p>2024 · الرياض</p>
-                <div class="led-stats">
-                  <span>C&C</span>
-                  <span>تحكم</span>
-                  <span>تقني</span>
-                </div>
+              <div class="led-slide" data-cue="4">
+                <span class="led-kicker" dir="ltr">PROJECT 04 — 2024</span>
+                <h3 dir="ltr">24FINTECH</h3>
+                <p>الرياض — غرفة قيادة وتحكم كاملة</p>
+                <div class="led-chips"><span dir="ltr">C&amp;C</span><span>تحكم</span><span>تقني</span></div>
               </div>
             </div>
+
+            <div class="stage-floor" aria-hidden="true"></div>
           </div>
 
-          <!-- Stage Floor -->
-          <div class="stage-floor">
-            <div class="stage-floor-inner"></div>
+          <div class="cue-sheet">
+            <button class="cue-nav" id="cuePrev" aria-label="المشروع السابق">‹</button>
+            <div class="cue-btns" role="tablist" aria-label="اختيار المشروع">
+              <button class="cue is-on" role="tab" aria-selected="true" data-cue="1"><span class="cue-no" dir="ltr">CUE 01</span> موسم الرياض</button>
+              <button class="cue" role="tab" aria-selected="false" data-cue="2"><span class="cue-no" dir="ltr">CUE 02</span> البحر الأحمر</button>
+              <button class="cue" role="tab" aria-selected="false" data-cue="3"><span class="cue-no" dir="ltr">CUE 03</span> الشعلة</button>
+              <button class="cue" role="tab" aria-selected="false" data-cue="4"><span class="cue-no" dir="ltr">CUE 04</span> 24FINTECH</button>
+            </div>
+            <button class="cue-nav" id="cueNext" aria-label="المشروع التالي">›</button>
           </div>
 
-          <!-- PA System - Line Array -->
-          <div class="pa-left">
-            <div class="pa-cab"></div>
-            <div class="pa-cab"></div>
-            <div class="pa-cab"></div>
-          </div>
-          <div class="pa-right">
-            <div class="pa-cab"></div>
-            <div class="pa-cab"></div>
-            <div class="pa-cab"></div>
-          </div>
-
-          <!-- Subwoofers -->
-          <div class="sub-left"><div class="sub-cab"></div></div>
-          <div class="sub-right"><div class="sub-cab"></div></div>
-        </div>
-
-        <!-- Stage Controls -->
-        <div class="stage-controls">
-          <button class="stage-btn active" data-slide="1">موسم الرياض</button>
-          <button class="stage-btn" data-slide="2">البحر الأحمر</button>
-          <button class="stage-btn" data-slide="3">شعلة الألعاب</button>
-          <button class="stage-btn" data-slide="4">24FINTECH</button>
-        </div>
-
-        <div class="avl-specs">
-          <div class="avl-item">
-            <span class="avl-icon">◎</span>
-            <span class="avl-label">الإضاءة</span>
-            <span class="avl-val">180+ Fixture</span>
-          </div>
-          <div class="avl-item">
-            <span class="avl-icon">◉</span>
-            <span class="avl-label">الصوت</span>
-            <span class="avl-val">L-Acoustics K2</span>
-          </div>
-          <div class="avl-item">
-            <span class="avl-icon">▣</span>
-            <span class="avl-label">الفيديو</span>
-            <span class="avl-val">LED 12×6m</span>
-          </div>
-          <div class="avl-item">
-            <span class="avl-icon">◆</span>
-            <span class="avl-label">التحكم</span>
-            <span class="avl-val">GrandMA3</span>
-          </div>
+          <ul class="avl">
+            <li class="avl-item reveal"><span class="avl-k">الإضاءة</span><span class="avl-v" dir="ltr">180+ FIXTURE</span></li>
+            <li class="avl-item reveal" style="--d:.06s"><span class="avl-k">الصوت</span><span class="avl-v" dir="ltr">L-ACOUSTICS K2</span></li>
+            <li class="avl-item reveal" style="--d:.12s"><span class="avl-k">الفيديو</span><span class="avl-v" dir="ltr">LED 12×6m</span></li>
+            <li class="avl-item reveal" style="--d:.18s"><span class="avl-k">التحكم</span><span class="avl-v" dir="ltr">GRANDMA3</span></li>
+          </ul>
         </div>
       </div>
     </section>
 
-    <!-- ════════════════════════════════════════ -->
-    <!-- 4. CONNECT — Premium Contact            -->
-    <!-- ════════════════════════════════════════ -->
-    <section class="connect-section" id="connect">
-      <div class="connect-bg" aria-hidden="true">
-        <div class="connect-ring"></div>
-        <div class="connect-ring ring-2"></div>
-        <div class="connect-ring ring-3"></div>
-      </div>
+    <!-- ══════════════════════════════════════
+         05 · CONNECT — قنوات الاتصال
+    ═══════════════════════════════════════ -->
+    <section class="connect-section" id="connect" aria-labelledby="connect-title">
+      <div class="sadu-band" aria-hidden="true"></div>
 
       <div class="container">
-        <div class="connect-frame">
-          <div class="connect-brand">
-            <div class="connect-logo">◆</div>
-            <h2 class="connect-heading">لننفذ فعاليتك القادمة</h2>
-            <p class="connect-sub">متاح للفرص والمشاريع — الرياض، المملكة العربية السعودية</p>
+        <div class="connect-grid">
+          <div class="connect-copy reveal">
+            <p class="sec-eyebrow sec-eyebrow-light"><span dir="ltr">05 / CONNECT</span></p>
+            <h2 class="connect-title" id="connect-title">لننفّذ فعاليتك القادمة</h2>
+            <p class="connect-lede">متاح للمشاريع والفرص في الرياض وعموم المملكة — أرد خلال ساعات، وأصل الموقع قبل الموعد.</p>
+
+            <p class="connect-avail"><span class="avail-dot"></span> متاح الآن — الرياض، المملكة العربية السعودية</p>
+
+            <ul class="creds" aria-label="الدورات والاعتمادات">
+              <li>PMP</li><li>PMI-RMP</li><li>PMI-ACP</li><li>CAPM</li><li>PMI-PBA</li><li>PMI-SP</li>
+            </ul>
           </div>
 
-          <div class="connect-divider">
-            <span></span>
-            <span class="divider-icon">✦</span>
-            <span></span>
-          </div>
+          <div class="comms reveal" style="--d:.12s">
+            <p class="comms-label" dir="ltr">COMMS — قنوات الاتصال</p>
 
-          <div class="connect-channels">
-            <a href="tel:+966556299725" class="ch-card">
-              <span class="ch-ring">
-                <span class="ch-icon">📞</span>
-              </span>
-              <span class="ch-label">اتصال مباشر</span>
-              <span class="ch-value">+966 55 629 9725</span>
-              <span class="ch-hint">متاح 24 ساعة</span>
-            </a>
+            <div class="ch">
+              <a class="ch-main" href="tel:+966556299725">
+                <span class="ch-no" dir="ltr">CH-1</span>
+                <span class="ch-body"><span class="ch-name">اتصال مباشر</span><span class="ch-val" dir="ltr">+966 55 629 9725</span></span>
+                <span class="ch-go" aria-hidden="true">↖</span>
+              </a>
+              <button class="ch-copy" data-copy="+966556299725" aria-label="نسخ رقم الهاتف">نسخ</button>
+            </div>
 
-            <a href="https://wa.me/966556299725" target="_blank" rel="noopener" class="ch-card">
-              <span class="ch-ring">
-                <span class="ch-icon">💬</span>
-              </span>
-              <span class="ch-label">واتساب</span>
-              <span class="ch-value">+966 55 629 9725</span>
-              <span class="ch-hint">الرد الفوري</span>
-            </a>
+            <div class="ch">
+              <a class="ch-main" href="https://wa.me/966556299725" target="_blank" rel="noopener">
+                <span class="ch-no" dir="ltr">CH-2</span>
+                <span class="ch-body"><span class="ch-name">واتساب — الأسرع</span><span class="ch-val" dir="ltr">+966 55 629 9725</span></span>
+                <span class="ch-go" aria-hidden="true">↖</span>
+              </a>
+              <button class="ch-copy" data-copy="+966556299725" aria-label="نسخ رقم الواتساب">نسخ</button>
+            </div>
 
-            <a href="mailto:Turkei.aldress@gmail.com" class="ch-card">
-              <span class="ch-ring">
-                <span class="ch-icon">✉</span>
-              </span>
-              <span class="ch-label">البريد الإلكتروني</span>
-              <span class="ch-value">Turkei.aldress@gmail.com</span>
-              <span class="ch-hint">خلال 24 ساعة</span>
-            </a>
-          </div>
-
-          <div class="connect-creds">
-            <div class="cred-chip">PMP</div>
-            <div class="cred-chip">PMI-RMP</div>
-            <div class="cred-chip">PMI-ACP</div>
-            <div class="cred-chip">CAPM</div>
-            <div class="cred-chip">PMI-PBA</div>
-            <div class="cred-chip">PMI-SP</div>
-          </div>
-
-          <div class="connect-footer">
-            <span>📍 الرياض، المملكة العربية السعودية</span>
-            <span>·</span>
-            <span>© <span data-year>2026</span> تركي الدريس</span>
+            <div class="ch">
+              <a class="ch-main" href="mailto:Turkei.aldress@gmail.com">
+                <span class="ch-no" dir="ltr">CH-3</span>
+                <span class="ch-body"><span class="ch-name">البريد الإلكتروني</span><span class="ch-val" dir="ltr">Turkei.aldress@gmail.com</span></span>
+                <span class="ch-go" aria-hidden="true">↖</span>
+              </a>
+              <button class="ch-copy" data-copy="Turkei.aldress@gmail.com" aria-label="نسخ البريد الإلكتروني">نسخ</button>
+            </div>
           </div>
         </div>
+
+        <footer class="site-foot">
+          <span>من غرفة التخطيط إلى خشبة المسرح</span>
+          <span class="foot-sep">✦</span>
+          <span>© <span id="footYear">2026</span> تركي الدريس</span>
+        </footer>
       </div>
     </section>
 
   </main>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
   <script src="assets/js/main.js" defer></script>
 </body>
