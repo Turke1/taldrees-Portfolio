@@ -1,119 +1,103 @@
+/* تركي الدريس — ملف أعمال
+   No dependencies. Everything degrades gracefully without JS. */
 (function () {
   "use strict";
 
-  document.documentElement.classList.add("js");
+  var root = document.documentElement;
+  root.classList.add("js");
 
   var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var hasIO = "IntersectionObserver" in window;
 
-  /* ── Scroll reveals ── */
+  /* ── Scroll reveals ──
+     The observer is the nice path. Everything below it is insurance: a
+     `.reveal` that never gets `.in-view` stays at opacity 0 forever, so a
+     silent IntersectionObserver would blank the whole page. Never allow that. */
   var revealEls = document.querySelectorAll(".reveal");
-  if (reduceMotion || !("IntersectionObserver" in window)) {
+
+  var revealAll = function () {
     revealEls.forEach(function (el) { el.classList.add("in-view"); });
+  };
+
+  if (reduceMotion || !hasIO) {
+    revealAll();
   } else {
-    var io = new IntersectionObserver(
+    var revealObs = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in-view");
-            io.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("in-view");
+          revealObs.unobserve(entry.target);
         });
       },
       { rootMargin: "0px 0px -8% 0px", threshold: 0.08 }
     );
-    revealEls.forEach(function (el) { io.observe(el); });
+    revealEls.forEach(function (el) { revealObs.observe(el); });
+
+    /* Sweep anything already in view that the observer hasn't reported. */
+    var sweep = function () {
+      var limit = window.innerHeight * 1.1;
+      revealEls.forEach(function (el) {
+        if (el.classList.contains("in-view")) return;
+        if (el.getBoundingClientRect().top < limit) el.classList.add("in-view");
+      });
+    };
+
+    window.addEventListener("load", function () { setTimeout(sweep, 200); });
+
+    /* Capture phase, on document — not `window`, and not bubble phase. Scroll
+       events from an inner scrolling container do not reach a window-level
+       listener, and embedded viewers (preview panes, iframes, side panels)
+       scroll exactly that way. With a window-only listener everything below
+       the fold stays at opacity 0 forever, because the 2.5s catch-all won't
+       fire either: the hero *did* reveal, so "nothing revealed" is false. */
+    document.addEventListener("scroll", sweep, { passive: true, capture: true });
+    window.addEventListener("resize", sweep, { passive: true });
+
+    /* Last resort: if nothing at all has revealed, the observer is dead. */
+    setTimeout(function () {
+      if (!document.querySelector(".reveal.in-view")) revealAll();
+    }, 2500);
   }
 
-  /* ── Animated counters for progress bars ── */
-  var deptBars = document.querySelectorAll(".dept-bar span");
-  if (!reduceMotion && "IntersectionObserver" in window) {
-    var barObs = new IntersectionObserver(
-      function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var el = entry.target;
-            var w = el.style.width;
-            el.style.width = "0%";
-            setTimeout(function () { el.style.width = w; }, 100);
-            barObs.unobserve(el);
-          }
-        });
-      },
-      { threshold: 0.2 }
-    );
-    deptBars.forEach(function (b) { barObs.observe(b); });
-  }
+  /* ── Nav hairline once the page scrolls ── */
+  var nav = document.querySelector(".nav");
+  if (nav) {
+    var sentinel = document.createElement("div");
+    sentinel.setAttribute("aria-hidden", "true");
+    sentinel.style.cssText = "position:absolute;top:0;height:1px;width:1px;";
+    document.body.prepend(sentinel);
 
-  /* ── 3D Tilt on Planning Board ── */
-  var board = document.querySelector(".planning-board");
-  if (board && !reduceMotion) {
-    var hero = document.querySelector(".hero");
-    if (hero) {
-      hero.addEventListener("mousemove", function (e) {
-        var rect = hero.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        board.style.transform =
-          "rotateX(" + (-y * 6) + "deg) rotateY(" + (x * 8) + "deg) translateZ(20px)";
-      });
-      hero.addEventListener("mouseleave", function () {
-        board.style.transform = "rotateX(2deg) translateZ(20px)";
-      });
+    if (hasIO) {
+      new IntersectionObserver(
+        function (entries) {
+          nav.classList.toggle("is-stuck", !entries[0].isIntersecting);
+        },
+        { threshold: 0 }
+      ).observe(sentinel);
     }
   }
 
-  /* ── 3D Tilt on Contact Frame ── */
-  var frame = document.querySelector(".connect-frame");
-  if (frame && !reduceMotion) {
-    var connect = document.querySelector(".connect-section");
-    if (connect) {
-      connect.addEventListener("mousemove", function (e) {
-        var rect = connect.getBoundingClientRect();
-        var x = (e.clientX - rect.left) / rect.width - 0.5;
-        var y = (e.clientY - rect.top) / rect.height - 0.5;
-        frame.style.transform =
-          "translateZ(40px) rotateX(" + (-y * 3) + "deg) rotateY(" + (x * 4) + "deg)";
-      });
-      connect.addEventListener("mouseleave", function () {
-        frame.style.transform = "translateZ(40px)";
-      });
-    }
-  }
-
-  /* ── Stage LED slides ── */
-  var stageBtns = document.querySelectorAll(".stage-btn");
-  var slides = document.querySelectorAll(".led-slide");
-
-  stageBtns.forEach(function (btn) {
-    btn.addEventListener("click", function () {
-      var num = btn.getAttribute("data-slide");
-      stageBtns.forEach(function (b) { b.classList.remove("active"); });
-      btn.classList.add("active");
-      slides.forEach(function (s) { s.classList.remove("active"); });
-      var target = document.getElementById("slide-" + num);
-      if (target) target.classList.add("active");
-    });
-  });
-
-  /* ── Active nav tracking ── */
-  var sections = document.querySelectorAll("section[id]");
+  /* ── Active nav link ── */
+  var sections = document.querySelectorAll("main section[id]");
   var navLinks = document.querySelectorAll(".nav-links a");
-  if (sections.length > 0 && navLinks.length > 0 && "IntersectionObserver" in window) {
+
+  if (sections.length && navLinks.length && hasIO) {
+    var setActive = function (id) {
+      navLinks.forEach(function (link) {
+        link.classList.toggle("is-active", link.getAttribute("href") === "#" + id);
+      });
+    };
+
     var navObs = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
-          if (entry.isIntersecting) {
-            var id = entry.target.id;
-            navLinks.forEach(function (link) {
-              var match = link.getAttribute("href") === "#" + id;
-              link.style.color = match ? "var(--gold)" : "";
-              link.style.background = match ? "var(--gold-soft)" : "";
-            });
-          }
+          if (entry.isIntersecting) setActive(entry.target.id);
         });
       },
-      { rootMargin: "-40% 0px -55% 0px" }
+      { rootMargin: "-45% 0px -50% 0px" }
     );
+
     sections.forEach(function (s) { navObs.observe(s); });
   }
 
