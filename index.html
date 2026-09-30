@@ -9,15 +9,15 @@
   <meta property="og:description" content="مدير عمليات يقود كواليس أضخم فعاليات المملكة — من موسم الرياض إلى مهرجان البحر الأحمر السينمائي الدولي.">
   <meta property="og:type" content="profile">
   <meta property="og:locale" content="ar_SA">
-  <meta name="theme-color" content="#FAF8F4">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230D3B2E'/%3E%3Cg fill='none' stroke='%23C99A3B' stroke-width='2.4'%3E%3Crect x='21' y='21' width='22' height='22'/%3E%3Crect x='21' y='21' width='22' height='22' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E">
+  <meta name="theme-color" content="#0B1A2E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='15' fill='%230B1A2E'/%3E%3Cg fill='none' stroke='%23D4A64A' stroke-width='2.4'%3E%3Crect x='21' y='21' width='22' height='22'/%3E%3Crect x='21' y='21' width='22' height='22' transform='rotate(45 32 32)'/%3E%3C/g%3E%3C/svg%3E">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Reem+Kufi:wght@400..700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/css/main.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">تجاوز إلى المحتوى الرئيسي</a>
+  <a class="skip-link" href="#main" data-en="Skip to main content">تجاوز إلى المحتوى الرئيسي</a>
 
   <!-- ═══════════════════ NAV ═══════════════════ -->
   <header class="nav" id="top">
@@ -36,18 +36,22 @@
             <rect x="11" y="31" width="9" height="1.5" rx="0.75"/>
           </g>
         </svg>
-        <span class="brand-name">تركي الدريس</span>
+        <span class="brand-name" data-en="Turki Al-Dress">تركي الدريس</span>
       </a>
 
       <nav class="nav-links" aria-label="التنقل الرئيسي">
-        <a href="#record">سجل الفعاليات</a>
-        <a href="#career">المسيرة</a>
-        <a href="#skills">القدرات</a>
-        <a href="#creds">الاعتمادات</a>
-        <a href="#partners">الجهات</a>
+        <a href="#record" data-en="Event Record">سجل الفعاليات</a>
+        <a href="#career" data-en="Career">المسيرة</a>
+        <a href="#skills" data-en="Capabilities">القدرات</a>
+        <a href="#creds" data-en="Credentials">الاعتمادات</a>
+        <a href="#partners" data-en="Organisations">الجهات</a>
       </nav>
 
-      <a href="#contact" class="btn btn-solid btn-sm nav-cta">تواصل</a>
+      <button type="button" class="lang-toggle" id="langToggle" aria-label="Switch to English">
+        <span class="lang-toggle-face" aria-hidden="true">EN</span>
+      </button>
+
+      <a href="#contact" class="btn btn-solid btn-sm nav-cta" data-en="Contact">تواصل</a>
     </div>
   </header>
 
@@ -55,23 +59,24 @@
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
     <section class="hero" aria-labelledby="hero-name">
+      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-rules" aria-hidden="true"></div>
 
       <div class="container hero-grid">
         <div class="hero-copy">
-          <p class="eyebrow reveal">
+          <p class="eyebrow reveal" data-en="&lt;span class=&quot;eyebrow-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt; Portfolio &amp;middot; Riyadh, Saudi Arabia">
             <span class="eyebrow-dot" aria-hidden="true"></span>
             ملف أعمال · الرياض، المملكة العربية السعودية
           </p>
 
-          <h1 id="hero-name" class="hero-title reveal">
+          <h1 id="hero-name" class="hero-title reveal" data-en="&lt;span&gt;Turki&lt;/span&gt;&lt;span&gt;Al-Dress&lt;/span&gt;">
             <span>تركي</span>
             <span>الدريس</span>
           </h1>
 
-          <p class="hero-statement reveal">مدير عمليات يقود كواليس أضخم فعاليات المملكة.</p>
+          <p class="hero-statement reveal" data-en="An operations manager running the backstage of the Kingdom's largest events.">مدير عمليات يقود كواليس أضخم فعاليات المملكة.</p>
 
-          <p class="hero-lede reveal">
+          <p class="hero-lede reveal" data-en="From Riyadh Season HQ to the Red Sea International Film Festival &amp;mdash; managing operations and projects since 2018, with a focus on operational excellence, resource efficiency and risk management, aligned with Saudi Vision 2030.">
             من المقر الرئيسي لموسم الرياض إلى مهرجان البحر الأحمر السينمائي الدولي —
             إدارة عمليات ومشاريع منذ <bdi dir="ltr">2018</bdi>، بتركيز على التميّز التشغيلي
             وكفاءة الموارد وإدارة المخاطر، وبما يتوافق مع رؤية السعودية
@@ -79,8 +84,8 @@
           </p>
 
           <div class="hero-actions reveal">
-            <a href="#contact" class="btn btn-solid">أرسل رسالة</a>
-            <a href="#record" class="btn btn-ghost">استعرض السجل</a>
+            <a href="#contact" class="btn btn-solid" data-en="Send a message">أرسل رسالة</a>
+            <a href="#record" class="btn btn-ghost" data-en="View the record">استعرض السجل</a>
           </div>
         </div>
 
@@ -89,7 +94,7 @@
           <div class="badge-clip" aria-hidden="true"><span class="badge-slot"></span></div>
 
           <div class="badge-head">
-            <span class="badge-sector">قطاع الفعاليات</span>
+            <span class="badge-sector" data-en="Events Sector">قطاع الفعاليات</span>
             <span class="badge-type" dir="ltr">OPS</span>
           </div>
 
@@ -145,23 +150,23 @@
               </svg>
             </div>
 
-            <p class="badge-name">تركي فهد الدريس</p>
-            <p class="badge-role">مدير عمليات — إدارة الفعاليات</p>
+            <p class="badge-name" data-en="Turki Fahad Al-Dress">تركي فهد الدريس</p>
+            <p class="badge-role" data-en="Operations Manager &amp;mdash; Event Management">مدير عمليات — إدارة الفعاليات</p>
 
             <dl class="badge-rows">
-              <div class="badge-row">
+              <div class="badge-row" data-en="&lt;dt&gt;Base&lt;/dt&gt;&lt;dd&gt;Riyadh, Saudi Arabia&lt;/dd&gt;">
                 <dt>المقر</dt>
                 <dd>الرياض، السعودية</dd>
               </div>
-              <div class="badge-row">
+              <div class="badge-row" data-en="&lt;dt&gt;In the field since&lt;/dt&gt;&lt;dd dir=&quot;ltr&quot;&gt;2018&lt;/dd&gt;">
                 <dt>في الميدان منذ</dt>
                 <dd dir="ltr">2018</dd>
               </div>
             </dl>
 
             <div class="badge-zones">
-              <p class="badge-zones-label">مجالات العمل</p>
-              <ul class="badge-zone-list" role="list">
+              <p class="badge-zones-label" data-en="Fields of work">مجالات العمل</p>
+              <ul class="badge-zone-list" role="list" data-en="&lt;li&gt;Operations&lt;/li&gt;&lt;li&gt;Backstage&lt;/li&gt;&lt;li&gt;Control room&lt;/li&gt;&lt;li&gt;Logistics&lt;/li&gt;">
                 <li>العمليات</li>
                 <li>الكواليس</li>
                 <li>غرفة التحكم</li>
@@ -178,19 +183,19 @@
       </div>
 
       <dl class="container stats reveal" aria-label="أرقام سريعة">
-        <div class="stat">
+        <div class="stat" data-en="&lt;dd&gt;&lt;span dir=&quot;ltr&quot;&gt;8+&lt;/span&gt;&lt;/dd&gt;&lt;dt&gt;Years of experience&lt;/dt&gt;">
           <dd><span dir="ltr">8+</span></dd>
           <dt>سنوات خبرة</dt>
         </div>
-        <div class="stat">
+        <div class="stat" data-en="&lt;dd&gt;&lt;span dir=&quot;ltr&quot;&gt;15+&lt;/span&gt;&lt;/dd&gt;&lt;dt&gt;Events and projects&lt;/dt&gt;">
           <dd><span dir="ltr">15+</span></dd>
           <dt>فعالية ومشروعًا</dt>
         </div>
-        <div class="stat">
+        <div class="stat" data-en="&lt;dd&gt;&lt;span dir=&quot;ltr&quot;&gt;6&lt;/span&gt;&lt;/dd&gt;&lt;dt&gt;Professional PMI courses&lt;/dt&gt;">
           <dd><span dir="ltr">6</span></dd>
           <dt>دورات <bdi dir="ltr">PMI</bdi> احترافية</dt>
         </div>
-        <div class="stat">
+        <div class="stat" data-en="&lt;dd&gt;&lt;span dir=&quot;ltr&quot;&gt;10+&lt;/span&gt;&lt;/dd&gt;&lt;dt&gt;National and global bodies&lt;/dt&gt;">
           <dd><span dir="ltr">10+</span></dd>
           <dt>جهات وطنية وعالمية</dt>
         </div>
@@ -201,103 +206,103 @@
     <section class="section on-white" id="record" aria-labelledby="record-title">
       <div class="container">
         <header class="sec-head">
-          <p class="kicker reveal"><span class="kicker-num" dir="ltr">01</span> سجل الفعاليات</p>
-          <h2 class="section-title reveal" id="record-title">فعاليات وطنية ودولية<br>أُديرت من الكواليس</h2>
+          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;01&lt;/span&gt; Event Record"><span class="kicker-num" dir="ltr">01</span> سجل الفعاليات</p>
+          <h2 class="section-title reveal" id="record-title" data-en="National and international events&lt;br&gt;run from backstage">فعاليات وطنية ودولية<br>أُديرت من الكواليس</h2>
         </header>
 
         <ol class="record" role="list">
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">01</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;Riyadh Season &amp;mdash; Headquarters&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;RIYADH SEASON HQ&lt;/p&gt;">
               <h3>موسم الرياض — المقر الرئيسي</h3>
               <p dir="ltr">RIYADH SEASON HQ</p>
             </div>
-            <p class="record-role">مسؤول اعتمادات — المركز الوطني للفعاليات</p>
-            <p class="record-year" dir="ltr">2022–2023</p>
+            <p class="record-role" data-en="Accreditation officer &amp;mdash; National Events Center">مسؤول اعتمادات — المركز الوطني للفعاليات</p>
+            <p class="record-year" dir="ltr" data-en="2022&amp;ndash;2023">2022–2023</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">02</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;Red Sea International Film Festival&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;RED SEA INTL. FILM FESTIVAL&lt;/p&gt;">
               <h3>مهرجان البحر الأحمر السينمائي الدولي</h3>
               <p dir="ltr">RED SEA INTL. FILM FESTIVAL</p>
             </div>
-            <p class="record-role">مدير مشروع — قائد أمن <bdi dir="ltr">ECR</bdi></p>
-            <p class="record-year">جدة</p>
+            <p class="record-role" data-en="Project manager &amp;mdash; ECR security lead">مدير مشروع — قائد أمن <bdi dir="ltr">ECR</bdi></p>
+            <p class="record-year" data-en="Jeddah">جدة</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">03</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;Saudi Games Torch Relay&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;SAUDI GAMES TORCH&lt;/p&gt;">
               <h3>شعلة دورة الألعاب السعودية</h3>
               <p dir="ltr">SAUDI GAMES TORCH</p>
             </div>
-            <p class="record-role">مدير مشروع</p>
-            <p class="record-year">مسار وطني</p>
+            <p class="record-role" data-en="Project manager">مدير مشروع</p>
+            <p class="record-year" data-en="National route">مسار وطني</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">04</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;24FINTECH Summit&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;24 FINTECH SUMMIT&lt;/p&gt;">
               <h3>ملتقى <bdi dir="ltr">24FINTECH</bdi></h3>
               <p dir="ltr">24 FINTECH SUMMIT</p>
             </div>
-            <p class="record-role">قائد غرفة القيادة والتحكم</p>
-            <p class="record-year">الرياض</p>
+            <p class="record-role" data-en="Command &amp; control room lead">قائد غرفة القيادة والتحكم</p>
+            <p class="record-year" data-en="Riyadh">الرياض</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">05</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;FINAL FANTASY Event&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;FINAL FANTASY EVENT&lt;/p&gt;">
               <h3>فعالية <bdi dir="ltr">FINAL FANTASY</bdi></h3>
               <p dir="ltr">FINAL FANTASY EVENT</p>
             </div>
-            <p class="record-role">مدير مشروع</p>
-            <p class="record-year">قطاع الترفيه</p>
+            <p class="record-role" data-en="Project manager">مدير مشروع</p>
+            <p class="record-year" data-en="Entertainment">قطاع الترفيه</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">06</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;UNESCO&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;UNESCO&lt;/p&gt;">
               <h3>اليونسكو</h3>
               <p dir="ltr">UNESCO</p>
             </div>
-            <p class="record-role">مدير مشروع</p>
-            <p class="record-year">مشاريع دولية</p>
+            <p class="record-role" data-en="Project manager">مدير مشروع</p>
+            <p class="record-year" data-en="International">مشاريع دولية</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">07</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;Ramadan Season &amp;mdash; Ministry of Culture&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;MOC RAMADAN SEASON&lt;/p&gt;">
               <h3>موسم رمضان — وزارة الثقافة</h3>
               <p dir="ltr">MOC RAMADAN SEASON</p>
             </div>
-            <p class="record-role">إدارة العمليات — مفيد</p>
-            <p class="record-year" dir="ltr">2025</p>
+            <p class="record-role" data-en="Operations management &amp;mdash; MUFEED">إدارة العمليات — مفيد</p>
+            <p class="record-year" dir="ltr" data-en="2025">2025</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">08</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;Aseer Season &amp;mdash; Asdaa&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;ASEER SEASON&lt;/p&gt;">
               <h3>موسم عسير — أصداء</h3>
               <p dir="ltr">ASEER SEASON</p>
             </div>
-            <p class="record-role">إدارة العمليات: سوق الثلاثاء، حديقة العدل، شارع الفن</p>
-            <p class="record-year" dir="ltr">2025</p>
+            <p class="record-role" data-en="Operations: Tuesday Market, Al-Adl Park, Art Street">إدارة العمليات: سوق الثلاثاء، حديقة العدل، شارع الفن</p>
+            <p class="record-year" dir="ltr" data-en="2025">2025</p>
           </li>
 
           <li class="record-row reveal">
             <span class="record-i" dir="ltr" aria-hidden="true">09</span>
-            <div class="record-name">
+            <div class="record-name" data-en="&lt;h3&gt;Saudi Falcon Club&lt;/h3&gt;&lt;p dir=&quot;ltr&quot;&gt;SAUDI FALCON CLUB&lt;/p&gt;">
               <h3>نادي الصقور السعودي</h3>
               <p dir="ltr">SAUDI FALCON CLUB</p>
             </div>
-            <p class="record-role">إدارة العمليات — مفيد</p>
-            <p class="record-year" dir="ltr">2025</p>
+            <p class="record-role" data-en="Operations management &amp;mdash; MUFEED">إدارة العمليات — مفيد</p>
+            <p class="record-year" dir="ltr" data-en="2025">2025</p>
           </li>
         </ol>
 
-        <p class="record-more reveal">
+        <p class="record-more reveal" data-en="Other engagements include: World Defense Show, GCAT, a fashion show, Zaman Village, the Motor Show, and Foundation Village.">
           ومشاركات أخرى تشمل: معرض الدفاع العالمي، <bdi dir="ltr">GCAT</bdi>، عرض أزياء،
           قرية زمان، معرض السيارات، وقرية التأسيس.
         </p>
@@ -308,83 +313,150 @@
     <section class="section on-sand" id="career" aria-labelledby="career-title">
       <div class="container">
         <header class="sec-head">
-          <p class="kicker reveal"><span class="kicker-num" dir="ltr">02</span> المسيرة المهنية</p>
-          <h2 class="section-title reveal" id="career-title">ثماني سنوات من الميدان</h2>
+          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;02&lt;/span&gt; Career"><span class="kicker-num" dir="ltr">02</span> المسيرة المهنية</p>
+          <h2 class="section-title reveal" id="career-title" data-en="Eight years in the field">ثماني سنوات من الميدان</h2>
         </header>
 
-        <ol class="chapters" role="list">
-          <li class="chapter reveal">
-            <div class="chapter-rail" aria-hidden="true"><span class="chapter-dot"></span></div>
-            <p class="chapter-years" dir="ltr">2018–2023</p>
-            <div class="chapter-body">
-              <h3>منسّق عمليات</h3>
-              <p class="chapter-org">الشركة المتحدة الدولية للنقل — شركة الخطوط السعودية للتموين <bdi dir="ltr">(SACC)</bdi></p>
-              <ul>
-                <li>التنسيق الأول بين إدارات متعددة: الطيران المدني، المشتريات، العمليات، الأمن، الصيانة وغيرها.</li>
-                <li>متابعة الفروقات المالية وتسويتها مع الإدارات المعنية.</li>
-                <li>مفوَّض رسميًا للارتباط مع الجهات الحكومية باسم الشركة.</li>
-              </ul>
-            </div>
-          </li>
+        <!-- Career reel. Every chapter stays in the DOM at all times — the
+             carousel only scrolls, and the detail is a disclosure, never a
+             removal, so the content stays findable and printable. Each
+             .chapter-mark is a drop-in slot: replace the monogram span with
+             <img class="chapter-logo" src="assets/img/<org>.svg" alt=""> the
+             day licensed logo files exist. -->
+        <div class="reel" role="region" aria-roledescription="carousel"
+             aria-label="المسيرة المهنية" data-en-label="Career">
 
-          <li class="chapter reveal">
-            <div class="chapter-rail" aria-hidden="true"><span class="chapter-dot"></span></div>
-            <p class="chapter-years" dir="ltr">2022–2023</p>
-            <div class="chapter-body">
-              <h3>مسؤول اعتمادات — المقر الرئيسي لموسم الرياض</h3>
-              <p class="chapter-org">المركز الوطني للفعاليات <bdi dir="ltr">(NEC)</bdi></p>
-              <ul>
-                <li>التنسيق مع جميع موردي موسم الرياض وتدقيق قواعد بياناتهم.</li>
-                <li>دعم مشاريع الموسم كافة، ومنها قرية زمان ومعرض السيارات.</li>
-              </ul>
-            </div>
-          </li>
+          <button type="button" class="reel-nav reel-prev"
+                  aria-label="الوظيفة السابقة" data-en-label="Previous role">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
 
-          <li class="chapter reveal">
-            <div class="chapter-rail" aria-hidden="true"><span class="chapter-dot"></span></div>
-            <p class="chapter-years" dir="ltr">2023–2024</p>
-            <div class="chapter-body">
-              <h3>مدير مشروع</h3>
-              <p class="chapter-org">شركة عمليات الأمن <bdi dir="ltr">(SECU)</bdi></p>
-              <ul>
-                <li>تخطيط المشاريع وتوزيع الموارد وتقييم المخاطر والحد منها.</li>
-                <li>ضبط الجودة وإدارة الجداول الزمنية والتخطيط اللوجستي.</li>
-                <li>قيادة مشاريع فعاليات كبرى: شعلة الألعاب السعودية، <bdi dir="ltr">24FINTECH</bdi>، مهرجان البحر الأحمر السينمائي، اليونسكو وغيرها.</li>
-              </ul>
-            </div>
-          </li>
+          <ol class="reel-track" role="list">
 
-          <li class="chapter reveal">
-            <div class="chapter-rail" aria-hidden="true"><span class="chapter-dot"></span></div>
-            <p class="chapter-years" dir="ltr">2024</p>
-            <div class="chapter-body">
-              <h3>مدير موقع — مدير مشروع بالإنابة</h3>
-              <p class="chapter-org">الشركة الوطنية للأمن <bdi dir="ltr">(SAFE)</bdi></p>
-              <ul>
-                <li>تأسيس قاعدة بيانات مستقرة ومتقدمة لإدارة بيانات المشاريع.</li>
-                <li>تطوير أنظمة البيانات الداخلية لرفع الكفاءة والدقة وسهولة الوصول.</li>
-                <li>تحسين أنظمة التواصل الداخلي لتعزيز التعاون وانسياب المعلومات.</li>
-              </ul>
-            </div>
-          </li>
+            <li class="reel-slide" role="group" aria-roledescription="شريحة" aria-label="1 / 5">
+              <article class="chapter-card">
+                <button type="button" class="chapter-open" aria-expanded="false" aria-controls="chap-01">
+                  <span class="chapter-mark" aria-hidden="true"><span class="chapter-monogram" dir="ltr">SACC</span></span>
+                  <span class="chapter-step" dir="ltr" aria-hidden="true">01</span>
+                  <span class="chapter-year" dir="ltr" data-en="2018&amp;ndash;2023">2018–2023</span>
+                  <span class="chapter-role" data-en="Operations Coordinator">منسّق عمليات</span>
+                  <span class="chapter-org" data-en="United International Transport &amp;mdash; Saudi Airlines Catering (SACC)">الشركة المتحدة الدولية للنقل — شركة الخطوط السعودية للتموين <bdi dir="ltr">(SACC)</bdi></span>
+                  <span class="chapter-cue" data-en="Details">التفاصيل</span>
+                </button>
 
-          <li class="chapter is-current reveal">
-            <div class="chapter-rail" aria-hidden="true"><span class="chapter-dot"></span></div>
-            <p class="chapter-years">
-              <span class="current-chip"><span class="current-dot" aria-hidden="true"></span>الحالي</span>
-            </p>
-            <div class="chapter-body">
-              <h3>مدير عمليات</h3>
-              <p class="chapter-org">مفيد <bdi dir="ltr">MUFEED</bdi></p>
-              <ul>
-                <li>الإدارة الشاملة لعمليات الفعاليات: التخطيط الاستراتيجي والتنفيذ الميداني.</li>
-                <li>قيادة الفرق والإشراف على عمليات المواقع، وإدارة الموردين والمقاولين.</li>
-                <li>ضبط الميزانيات وخفض التكاليف، وإدارة المخاطر والخطط البديلة.</li>
-                <li>مشاريع <bdi dir="ltr">2025</bdi>: موسم رمضان — وزارة الثقافة، موسم عسير — أصداء، نادي الصقور السعودي.</li>
-              </ul>
-            </div>
-          </li>
-        </ol>
+                <div class="chapter-detail" id="chap-01" hidden>
+                  <ul class="chapter-points" data-en="&lt;li&gt;Primary coordinator across multiple departments: civil aviation, procurement, operations, security, maintenance and others.&lt;/li&gt;&lt;li&gt;Tracking and settling financial discrepancies with the departments concerned.&lt;/li&gt;&lt;li&gt;Officially authorised to liaise with government bodies on the company's behalf.&lt;/li&gt;">
+                    <li>التنسيق الأول بين إدارات متعددة: الطيران المدني، المشتريات، العمليات، الأمن، الصيانة وغيرها.</li>
+                    <li>متابعة الفروقات المالية وتسويتها مع الإدارات المعنية.</li>
+                    <li>مفوَّض رسميًا للارتباط مع الجهات الحكومية باسم الشركة.</li>
+                  </ul>
+                  <div class="chapter-media"></div>
+                </div>
+              </article>
+            </li>
+
+            <li class="reel-slide" role="group" aria-roledescription="شريحة" aria-label="2 / 5">
+              <article class="chapter-card">
+                <button type="button" class="chapter-open" aria-expanded="false" aria-controls="chap-02">
+                  <span class="chapter-mark" aria-hidden="true"><span class="chapter-monogram" dir="ltr">NEC</span></span>
+                  <span class="chapter-step" dir="ltr" aria-hidden="true">02</span>
+                  <span class="chapter-year" dir="ltr" data-en="2022&amp;ndash;2023">2022–2023</span>
+                  <span class="chapter-role" data-en="Accreditation Officer &amp;mdash; Riyadh Season Headquarters">مسؤول اعتمادات — المقر الرئيسي لموسم الرياض</span>
+                  <span class="chapter-org" data-en="National Events Center (NEC)">المركز الوطني للفعاليات <bdi dir="ltr">(NEC)</bdi></span>
+                  <span class="chapter-cue" data-en="Details">التفاصيل</span>
+                </button>
+
+                <div class="chapter-detail" id="chap-02" hidden>
+                  <ul class="chapter-points" data-en="&lt;li&gt;Coordinating with every Riyadh Season supplier and auditing their databases.&lt;/li&gt;&lt;li&gt;Supporting all projects of the season, including Zaman Village and the Motor Show.&lt;/li&gt;">
+                    <li>التنسيق مع جميع موردي موسم الرياض وتدقيق قواعد بياناتهم.</li>
+                    <li>دعم مشاريع الموسم كافة، ومنها قرية زمان ومعرض السيارات.</li>
+                  </ul>
+                  <div class="chapter-media"></div>
+                </div>
+              </article>
+            </li>
+
+            <li class="reel-slide" role="group" aria-roledescription="شريحة" aria-label="3 / 5">
+              <article class="chapter-card">
+                <button type="button" class="chapter-open" aria-expanded="false" aria-controls="chap-03">
+                  <span class="chapter-mark" aria-hidden="true"><span class="chapter-monogram" dir="ltr">SECU</span></span>
+                  <span class="chapter-step" dir="ltr" aria-hidden="true">03</span>
+                  <span class="chapter-year" dir="ltr" data-en="2023&amp;ndash;2024">2023–2024</span>
+                  <span class="chapter-role" data-en="Project Manager">مدير مشروع</span>
+                  <span class="chapter-org" data-en="Security Operations Company (SECU)">شركة عمليات الأمن <bdi dir="ltr">(SECU)</bdi></span>
+                  <span class="chapter-cue" data-en="Details">التفاصيل</span>
+                </button>
+
+                <div class="chapter-detail" id="chap-03" hidden>
+                  <ul class="chapter-points" data-en="&lt;li&gt;Project planning, resource allocation, risk assessment and mitigation.&lt;/li&gt;&lt;li&gt;Quality control, schedule management and logistics planning.&lt;/li&gt;&lt;li&gt;Leading major event projects: Saudi Games Torch, 24FINTECH, Red Sea International Film Festival, UNESCO and others.&lt;/li&gt;">
+                    <li>تخطيط المشاريع وتوزيع الموارد وتقييم المخاطر والحد منها.</li>
+                    <li>ضبط الجودة وإدارة الجداول الزمنية والتخطيط اللوجستي.</li>
+                    <li>قيادة مشاريع فعاليات كبرى: شعلة الألعاب السعودية، <bdi dir="ltr">24FINTECH</bdi>، مهرجان البحر الأحمر السينمائي، اليونسكو وغيرها.</li>
+                  </ul>
+                  <div class="chapter-media"></div>
+                </div>
+              </article>
+            </li>
+
+            <li class="reel-slide" role="group" aria-roledescription="شريحة" aria-label="4 / 5">
+              <article class="chapter-card">
+                <button type="button" class="chapter-open" aria-expanded="false" aria-controls="chap-04">
+                  <span class="chapter-mark" aria-hidden="true"><span class="chapter-monogram" dir="ltr">SAFE</span></span>
+                  <span class="chapter-step" dir="ltr" aria-hidden="true">04</span>
+                  <span class="chapter-year" dir="ltr" data-en="2024">2024</span>
+                  <span class="chapter-role" data-en="Site Manager &amp;mdash; Acting Project Manager">مدير موقع — مدير مشروع بالإنابة</span>
+                  <span class="chapter-org" data-en="National Security Company (SAFE)">الشركة الوطنية للأمن <bdi dir="ltr">(SAFE)</bdi></span>
+                  <span class="chapter-cue" data-en="Details">التفاصيل</span>
+                </button>
+
+                <div class="chapter-detail" id="chap-04" hidden>
+                  <ul class="chapter-points" data-en="&lt;li&gt;Establishing a stable, advanced database for managing project data.&lt;/li&gt;&lt;li&gt;Developing internal data systems for efficiency, accuracy and accessibility.&lt;/li&gt;&lt;li&gt;Improving internal communication systems to strengthen collaboration and information flow.&lt;/li&gt;">
+                    <li>تأسيس قاعدة بيانات مستقرة ومتقدمة لإدارة بيانات المشاريع.</li>
+                    <li>تطوير أنظمة البيانات الداخلية لرفع الكفاءة والدقة وسهولة الوصول.</li>
+                    <li>تحسين أنظمة التواصل الداخلي لتعزيز التعاون وانسياب المعلومات.</li>
+                  </ul>
+                  <div class="chapter-media"></div>
+                </div>
+              </article>
+            </li>
+
+            <li class="reel-slide is-current" role="group" aria-roledescription="شريحة" aria-label="5 / 5">
+              <article class="chapter-card">
+                <button type="button" class="chapter-open" aria-expanded="false" aria-controls="chap-05">
+                  <span class="chapter-mark" aria-hidden="true"><span class="chapter-monogram" dir="ltr">MUFEED</span></span>
+                  <span class="chapter-step" dir="ltr" aria-hidden="true">05</span>
+                  <span class="chapter-year">
+                    <span class="current-chip" data-en="&lt;span class=&quot;current-dot&quot; aria-hidden=&quot;true&quot;&gt;&lt;/span&gt;Current"><span class="current-dot" aria-hidden="true"></span>الحالي</span>
+                  </span>
+                  <span class="chapter-role" data-en="Operations Manager">مدير عمليات</span>
+                  <span class="chapter-org" data-en="MUFEED">مفيد <bdi dir="ltr">MUFEED</bdi></span>
+                  <span class="chapter-cue" data-en="Details">التفاصيل</span>
+                </button>
+
+                <div class="chapter-detail" id="chap-05" hidden>
+                  <ul class="chapter-points" data-en="&lt;li&gt;End-to-end management of event operations: strategic planning and field execution.&lt;/li&gt;&lt;li&gt;Leading teams and overseeing site operations; managing suppliers and contractors.&lt;/li&gt;&lt;li&gt;Budget control and cost reduction, risk management and contingency planning.&lt;/li&gt;&lt;li&gt;2025 projects: Ramadan Season &amp;mdash; Ministry of Culture, Aseer Season &amp;mdash; Asdaa, Saudi Falcon Club.&lt;/li&gt;">
+                    <li>الإدارة الشاملة لعمليات الفعاليات: التخطيط الاستراتيجي والتنفيذ الميداني.</li>
+                    <li>قيادة الفرق والإشراف على عمليات المواقع، وإدارة الموردين والمقاولين.</li>
+                    <li>ضبط الميزانيات وخفض التكاليف، وإدارة المخاطر والخطط البديلة.</li>
+                    <li>مشاريع <bdi dir="ltr">2025</bdi>: موسم رمضان — وزارة الثقافة، موسم عسير — أصداء، نادي الصقور السعودي.</li>
+                  </ul>
+                  <div class="chapter-media"></div>
+                </div>
+              </article>
+            </li>
+
+          </ol>
+
+          <button type="button" class="reel-nav reel-next"
+                  aria-label="الوظيفة التالية" data-en-label="Next role">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+
+          <div class="reel-foot">
+            <p class="reel-count" dir="ltr"><span class="reel-at">1</span> / 5</p>
+            <div class="reel-dots" role="tablist" aria-label="اختيار الوظيفة" data-en-label="Choose a role"></div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -392,40 +464,40 @@
     <section class="section on-paper" id="skills" aria-labelledby="skills-title">
       <div class="container">
         <header class="sec-head">
-          <p class="kicker reveal"><span class="kicker-num" dir="ltr">03</span> القدرات التشغيلية</p>
-          <h2 class="section-title reveal" id="skills-title">ما الذي يديره فعليًا؟</h2>
+          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;03&lt;/span&gt; Operational Capabilities"><span class="kicker-num" dir="ltr">03</span> القدرات التشغيلية</p>
+          <h2 class="section-title reveal" id="skills-title" data-en="What does he actually run?">ما الذي يديره فعليًا؟</h2>
         </header>
 
         <ul class="skills-grid" role="list">
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Strategic event planning&lt;/h3&gt;&lt;p&gt;From concept to a complete execution plan with clear phases and ownership.&lt;/p&gt;">
             <h3>التخطيط الاستراتيجي للفعاليات</h3>
             <p>من الفكرة إلى خطة تنفيذ متكاملة بمراحل ومسؤوليات واضحة.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Team leadership and field supervision&lt;/h3&gt;&lt;p&gt;Running on-site teams minute by minute through to event close.&lt;/p&gt;">
             <h3>قيادة الفرق والإشراف الميداني</h3>
             <p>إدارة فرق العمل في الموقع لحظةً بلحظة حتى إغلاق الفعالية.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Command and control rooms&lt;/h3&gt;&lt;p&gt;Operating and leading C&amp;C rooms at large-scale events such as 24FINTECH.&lt;/p&gt;">
             <h3>غرف القيادة والتحكم</h3>
             <p>تشغيل غرف <bdi dir="ltr">C&amp;C</bdi> وقيادتها في فعاليات ضخمة مثل <bdi dir="ltr">24FINTECH</bdi>.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Supplier and contractor management&lt;/h3&gt;&lt;p&gt;Coordinating, auditing and tracking supplier contracts &amp;mdash; built on Riyadh Season accreditation experience.&lt;/p&gt;">
             <h3>إدارة الموردين والمقاولين</h3>
             <p>تنسيق وتدقيق ومتابعة عقود الموردين — بخبرة اعتمادات موسم الرياض.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Budget and cost control&lt;/h3&gt;&lt;p&gt;Improving operational spend without compromising the visitor experience.&lt;/p&gt;">
             <h3>ضبط الميزانية والتكاليف</h3>
             <p>تحسين الإنفاق التشغيلي دون المساس بجودة تجربة الزائر.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Risk management and contingency planning&lt;/h3&gt;&lt;p&gt;Assessing risk early and preparing alternative scenarios ready to activate.&lt;/p&gt;">
             <h3>إدارة المخاطر والخطط البديلة</h3>
             <p>تقييم المخاطر مبكرًا وتجهيز سيناريوهات بديلة جاهزة للتفعيل.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Logistics and site operations&lt;/h3&gt;&lt;p&gt;Planning transport and supply, and optimising the event supply chain.&lt;/p&gt;">
             <h3>اللوجستيات وعمليات المواقع</h3>
             <p>تخطيط النقل والإمداد وتحسين سلاسل التوريد للفعالية.</p>
           </li>
-          <li class="skill reveal">
+          <li class="skill reveal" data-en="&lt;h3&gt;Quality and compliance&lt;/h3&gt;&lt;p&gt;Ensuring services meet the standards of regulators and partners.&lt;/p&gt;">
             <h3>الجودة والامتثال</h3>
             <p>ضمان مطابقة الخدمات لمعايير الجهات المنظمة والشركاء.</p>
           </li>
@@ -437,12 +509,12 @@
     <section class="section on-white" id="creds" aria-labelledby="creds-title">
       <div class="container">
         <header class="sec-head">
-          <p class="kicker reveal"><span class="kicker-num" dir="ltr">04</span> الاعتمادات</p>
-          <h2 class="section-title reveal" id="creds-title">الدورات والاعتمادات المهنية</h2>
+          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;04&lt;/span&gt; Credentials"><span class="kicker-num" dir="ltr">04</span> الاعتمادات</p>
+          <h2 class="section-title reveal" id="creds-title" data-en="Professional courses and credentials">الدورات والاعتمادات المهنية</h2>
         </header>
 
         <div class="creds-grid">
-          <div class="cred-block reveal">
+          <div class="cred-block reveal" data-en="&lt;h3&gt;Project Management Institute (PMI)&lt;/h3&gt;&lt;ul class=&quot;chip-list&quot; role=&quot;list&quot;&gt;&lt;li dir=&quot;ltr&quot;&gt;PMP&lt;/li&gt;&lt;li dir=&quot;ltr&quot;&gt;PMI-PBA&lt;/li&gt;&lt;li dir=&quot;ltr&quot;&gt;PMI-ACP&lt;/li&gt;&lt;li dir=&quot;ltr&quot;&gt;PMI-SP&lt;/li&gt;&lt;li dir=&quot;ltr&quot;&gt;PMI-RMP&lt;/li&gt;&lt;li dir=&quot;ltr&quot;&gt;CAPM&lt;/li&gt;&lt;/ul&gt;">
             <h3>معهد إدارة المشاريع <bdi dir="ltr">PMI</bdi></h3>
             <ul class="chip-list" role="list">
               <li dir="ltr">PMP</li>
@@ -454,7 +526,7 @@
             </ul>
           </div>
 
-          <div class="cred-block reveal">
+          <div class="cred-block reveal" data-en="&lt;h3&gt;Mohammed bin Salman Foundation (MISK)&lt;/h3&gt;&lt;ul class=&quot;chip-list&quot; role=&quot;list&quot;&gt;&lt;li&gt;Time management&lt;/li&gt;&lt;li&gt;Effective communication&lt;/li&gt;&lt;li&gt;Emotional intelligence&lt;/li&gt;&lt;li&gt;Data analysis&lt;/li&gt;&lt;li&gt;Financial analysis&lt;/li&gt;&lt;/ul&gt;">
             <h3>مؤسسة محمد بن سلمان «مسك»</h3>
             <ul class="chip-list" role="list">
               <li>إدارة الوقت</li>
@@ -465,7 +537,7 @@
             </ul>
           </div>
 
-          <div class="cred-block reveal">
+          <div class="cred-block reveal" data-en="&lt;h3&gt;Education and languages&lt;/h3&gt;&lt;p class=&quot;cred-edu&quot;&gt;BA &amp;mdash; Imam Muhammad ibn Saud Islamic University&lt;/p&gt;&lt;ul class=&quot;chip-list&quot; role=&quot;list&quot;&gt;&lt;li&gt;Arabic &amp;mdash; native&lt;/li&gt;&lt;li&gt;English&lt;/li&gt;&lt;/ul&gt;">
             <h3>التعليم واللغات</h3>
             <p class="cred-edu">بكالوريوس — جامعة الإمام محمد بن سعود الإسلامية</p>
             <ul class="chip-list" role="list">
@@ -481,24 +553,105 @@
     <section class="section on-paper" id="partners" aria-labelledby="partners-title">
       <div class="container">
         <header class="sec-head">
-          <p class="kicker reveal"><span class="kicker-num" dir="ltr">05</span> جهات وشراكات</p>
-          <h2 class="section-title reveal" id="partners-title">مواقع عملٍ ومشاريع</h2>
+          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;05&lt;/span&gt; Organisations &amp; Partners"><span class="kicker-num" dir="ltr">05</span> جهات وشراكات</p>
+          <h2 class="section-title reveal" id="partners-title" data-en="Workplaces and projects">مواقع عملٍ ومشاريع</h2>
         </header>
 
-        <ul class="partners-grid reveal" role="list">
-          <li><strong>أرامكو السعودية</strong><span dir="ltr">ARAMCO</span></li>
-          <li><strong>نيوم</strong><span dir="ltr">NEOM</span></li>
-          <li><strong>صندوق الاستثمارات العامة</strong><span dir="ltr">PIF</span></li>
-          <li><strong>مركز الملك عبدالله المالي</strong><span dir="ltr">KAFD</span></li>
-          <li><strong>وزارة الثقافة</strong><span dir="ltr">MOC</span></li>
-          <li><strong>جدة التاريخية — البلد</strong><span dir="ltr">AL-BALAD</span></li>
-          <li><strong>المدينة الرقمية</strong><span dir="ltr">DIGITAL CITY</span></li>
-          <li><strong>حي جاكس</strong><span dir="ltr">JAX DISTRICT</span></li>
-          <li><strong>فيا الرياض</strong><span dir="ltr">VIA RIYADH</span></li>
-          <li><strong>اليونسكو</strong><span dir="ltr">UNESCO</span></li>
-          <li><strong>المركز الوطني للفعاليات</strong><span dir="ltr">NEC</span></li>
-          <li><strong>مؤسسة مسك</strong><span dir="ltr">MISK</span></li>
-        </ul>
+        <p class="sec-note reveal" data-en="Bodies and destinations where projects and events were delivered &amp;mdash; grouped by sector.">جهات ووجهات نُفِّذت لديها مشاريع وفعاليات — مرتّبة حسب القطاع.</p>
+
+        <!-- Wordmark wall. Each .org is ready to take an official logo file the
+             day licensed copies exist: drop <img class="org-logo" src="…" alt="">
+             in before .org-ar and the card handles sizing, greyscale and hover. -->
+        <div class="orgs">
+
+          <section class="org-band reveal" aria-labelledby="org-gov">
+            <h3 class="org-band-title" id="org-gov" data-en="&lt;span&gt;Government bodies &amp; organisations&lt;/span&gt;&lt;span class=&quot;org-band-count&quot; dir=&quot;ltr&quot;&gt;04&lt;/span&gt;">
+              <span>جهات حكومية ومنظمات</span>
+              <span class="org-band-count" dir="ltr">04</span>
+            </h3>
+            <ul class="org-grid" role="list">
+              <li class="org">
+                <span class="org-ar" data-en="Ministry of Culture">وزارة الثقافة</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">MINISTRY OF CULTURE</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="National Events Center">المركز الوطني للفعاليات</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">NATIONAL EVENTS CENTER</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="Public Investment Fund">صندوق الاستثمارات العامة</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">PUBLIC INVESTMENT FUND</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="UNESCO">اليونسكو</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">UNESCO</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="org-band reveal" aria-labelledby="org-corp">
+            <h3 class="org-band-title" id="org-corp" data-en="&lt;span&gt;Companies &amp; foundations&lt;/span&gt;&lt;span class=&quot;org-band-count&quot; dir=&quot;ltr&quot;&gt;04&lt;/span&gt;">
+              <span>شركات ومؤسسات</span>
+              <span class="org-band-count" dir="ltr">04</span>
+            </h3>
+            <ul class="org-grid" role="list">
+              <li class="org">
+                <span class="org-ar" data-en="Saudi Aramco">أرامكو السعودية</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">SAUDI ARAMCO</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="NEOM">نيوم</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">NEOM</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="Misk Foundation">مؤسسة مسك</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">MISK FOUNDATION</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="KAFD">مركز الملك عبدالله المالي</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">KAFD</span>
+              </li>
+            </ul>
+          </section>
+
+          <section class="org-band reveal" aria-labelledby="org-dest">
+            <h3 class="org-band-title" id="org-dest" data-en="&lt;span&gt;Destinations &amp; venues&lt;/span&gt;&lt;span class=&quot;org-band-count&quot; dir=&quot;ltr&quot;&gt;04&lt;/span&gt;">
+              <span>وجهات ومواقع</span>
+              <span class="org-band-count" dir="ltr">04</span>
+            </h3>
+            <ul class="org-grid" role="list">
+              <li class="org">
+                <span class="org-ar" data-en="Historic Jeddah &amp;mdash; Al-Balad">جدة التاريخية — البلد</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">HISTORIC JEDDAH · AL-BALAD</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="Digital City">المدينة الرقمية</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">DIGITAL CITY</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="JAX District">حي جاكس</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">JAX DISTRICT</span>
+              </li>
+              <li class="org">
+                <span class="org-ar" data-en="VIA Riyadh">فيا الرياض</span>
+                <span class="org-rule" aria-hidden="true"></span>
+                <span class="org-en" dir="ltr">VIA RIYADH</span>
+              </li>
+            </ul>
+          </section>
+
+        </div>
       </div>
     </section>
 
@@ -508,11 +661,11 @@
 
       <div class="container contact-inner">
         <header class="sec-head">
-          <p class="kicker kicker-light reveal"><span class="kicker-num" dir="ltr">06</span> التواصل</p>
-          <h2 class="section-title section-title-light reveal" id="contact-title">لنخطط لفعاليتك القادمة</h2>
+          <p class="kicker kicker-light reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;06&lt;/span&gt; Contact"><span class="kicker-num" dir="ltr">06</span> التواصل</p>
+          <h2 class="section-title section-title-light reveal" id="contact-title" data-en="Let's plan your next event">لنخطط لفعاليتك القادمة</h2>
         </header>
 
-        <p class="contact-lede reveal">
+        <p class="contact-lede reveal" data-en="Available for opportunities and projects in the events sector &amp;mdash; call or send a message and you'll have a reply shortly.">
           متاح للفرص والمشاريع في قطاع الفعاليات — اتصل أو أرسل رسالة وسيصلك الرد سريعًا.
         </p>
 
@@ -522,9 +675,15 @@
               <span class="c-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
               </span>
-              <span class="c-label">اتصل مباشرة</span>
+              <span class="c-label" data-en="Call directly">اتصل مباشرة</span>
               <b class="c-value" dir="ltr">+966 55 629 9725</b>
             </a>
+            <button type="button" class="c-copy" data-copy="+966556299725"
+                    aria-label="نسخ رقم الجوال" data-en-label="Copy phone number">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-idle" data-en="Copy">نسخ</span>
+              <span class="copy-done" data-en="Copied">تم النسخ</span>
+            </button>
           </li>
 
           <li class="reveal">
@@ -532,7 +691,7 @@
               <span class="c-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
               </span>
-              <span class="c-label">راسل واتساب</span>
+              <span class="c-label" data-en="Message on WhatsApp">راسل واتساب</span>
               <b class="c-value" dir="ltr">+966 55 629 9725</b>
             </a>
           </li>
@@ -542,21 +701,27 @@
               <span class="c-icon" aria-hidden="true">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
               </span>
-              <span class="c-label">أرسل بريدًا</span>
+              <span class="c-label" data-en="Send an email">أرسل بريدًا</span>
               <b class="c-value c-value-mail" dir="ltr">Turkei.aldress@gmail.com</b>
             </a>
+            <button type="button" class="c-copy" data-copy="Turkei.aldress@gmail.com"
+                    aria-label="نسخ البريد الإلكتروني" data-en-label="Copy email address">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              <span class="copy-idle" data-en="Copy">نسخ</span>
+              <span class="copy-done" data-en="Copied">تم النسخ</span>
+            </button>
           </li>
         </ul>
 
         <p class="contact-location reveal">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-          الرياض، المملكة العربية السعودية
+          <span class="loc-text" data-en="Riyadh, Saudi Arabia">الرياض، المملكة العربية السعودية</span>
         </p>
       </div>
 
       <footer class="footer">
         <div class="container footer-inner">
-          <p>© <span data-year>2026</span> تركي الدريس — جميع الحقوق محفوظة</p>
+          <p class="footer-copy" data-en="&amp;copy; &lt;span data-year&gt;2026&lt;/span&gt; Turki Al-Dress &amp;mdash; All rights reserved">© <span data-year>2026</span> تركي الدريس — جميع الحقوق محفوظة</p>
           <p class="footer-en" dir="ltr">TURKI AL-DRESS · OPERATIONS &amp; EVENTS · RIYADH</p>
         </div>
       </footer>

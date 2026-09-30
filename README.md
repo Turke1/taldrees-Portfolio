@@ -25,14 +25,26 @@ python -m http.server 8123
 # → http://localhost:8123
 ```
 
-## Design notes (v3 — light editorial base, dark green finale)
-- Palette: paper `#FAF8F4`, sand `#F1EBE0`, ink `#14120E`, green `#0D3B2E`, deep green `#0A2C22` (contact band), bronze `#A47C2C` — no purple, no blue, no gradients (per brief).
-- Type: Reem Kufi (display) + IBM Plex Sans Arabic (body) + IBM Plex Mono (numerals & Latin micro-labels).
-- Concept: «دليل الأعمال» — a premium brand-book/monograph that reads light all the way down, then closes on a deep-green band: hairline-ruled event index, career chapters on a dotted rail, an event accreditation pass in the hero, Sadu-pattern band over the contact section.
-- Accessibility: skip link, focus-visible outlines, `prefers-reduced-motion` honored, semantic headings, all text verified ≥4.5:1.
+## Design notes (v4 — navy & gold)
+- Palette: page `#0B1A2E`, raised card `#12243C`, alternating band `#0E1E33`, text `#EEF3F9`, gold accent `#D4A64A`, gold fill `#C99A3B`, closing band `#050D18`. The lighter a surface, the more raised it is.
+- Type: Reem Kufi (display) + IBM Plex Sans Arabic (body) + IBM Plex Mono (numerals & Latin micro-labels). English mode swaps the display face — see gotcha 3.
+- Concept: a dark monograph. Turki's own on-site photograph sits behind the hero in greyscale under a navy scrim; an event accreditation pass hangs on a lanyard beside the copy; the career runs as a one-role-at-a-time reel; the page closes on the deepest navy with a Sadu band.
+- Bilingual: a nav toggle swaps 108 elements between Arabic and English and flips `dir` — see gotcha 4.
+- Accessibility: skip link, focus-visible outlines, `prefers-reduced-motion` honored, semantic headings, all text verified ≥4.5:1 (including pixel-sampled contrast behind the hero photo).
 
-### Two gotchas for future edits
-1. **Three bronze tokens, on purpose.** `--bronze` (`#A47C2C`) is only ~3.8:1 on white — decorative strokes and dots only. Text uses `--bronze-text` (`#8A6520`) on paper/white and `--bronze-lt` (`#C99A3B`) on the green band. Don't merge them back into one.
-2. **`.reveal` starts invisible.** If IntersectionObserver never fires, every element stays at `opacity: 0` and the page renders blank — so `main.js` keeps three fallbacks (load sweep, scroll sweep, 2.5s catch-all). Keep them when touching reveal logic.
+### Gotchas for future edits
+1. **Gold is one family in three tones, and a gold fill carries DARK text.** `--bronze` (`#A47C2C`) is the deep tone for strokes; `--gold-fill` (`#C99A3B`) the mid tone for fills; `--gold` (`#D4A64A`) the light tone for text. `--on-gold` is the page navy, because white on gold fails. Anything you place on a gold fill must follow that flip or it turns gold-on-gold and vanishes — `.badge-type`, `.crest-chip` and `.current-dot` are already handled.
+2. **`.reveal` starts invisible.** If IntersectionObserver never fires, every element stays at `opacity: 0` and the page renders blank — so `main.js` keeps three fallbacks (load sweep, capture-phase scroll sweep, 2.5s catch-all). The scroll listener is on `document` in capture phase on purpose: a window-level listener misses scrolling inside embedded viewers and leaves everything below the fold hidden.
+3. **Reem Kufi has no Latin glyphs.** `html[lang="en"]` switches `--font-display` to IBM Plex Sans Arabic, whose Latin *is* IBM Plex Sans. Without that, English headings fall back silently to a system face.
+4. **Arabic lives in the DOM, English in `data-en`.** The Arabic original is cached in memory rather than a second attribute, because it contains `<bdi>` wrappers that keep Latin names and digits from breaking the bidi run. Swapping `textContent` would destroy them.
+5. **The career reel must not use `scrollIntoView` on load.** It opens on the current role; `block: "nearest"` would scroll the *page* down to the section and hijack where the visitor lands. It nudges the track's own `scrollLeft` by a measured delta instead.
+6. **`mailto:`/`tel:` need an OS handler.** Without one the click silently does nothing, so each contact card carries a copy button as a guaranteed path.
+
+### Slots waiting on assets
+Official logos are trademarks and no licensed files exist in this repo, so both places that want one render a typographic stand-in with the real slot ready:
+- `.chapter-mark` in the career reel → `<img class="chapter-logo" src="assets/img/<org>.svg" alt="">`
+- `.org` cards in section 05 → `<img class="org-logo" src="assets/img/<org>.svg" alt="">`
+
+Each career card also has an empty `<div class="chapter-media">`; drop `<img>`, `<video>` or `<iframe>` in and it becomes a grid. It stays collapsed while empty.
 
 See `Claude Docs/plan.md` and `Claude Docs/verification.md` for the full rationale and audit.

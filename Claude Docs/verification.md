@@ -1,6 +1,112 @@
 # Verification Log
 
-## v3 — light editorial + dark finale (2026-08-18, current)
+## v4 — navy & gold, bilingual, photographic hero (2026-09-14, current)
+
+Six changes, each verified in a real browser against a running server
+(`.claude/serve.pl` on :5500) rather than by inspection alone.
+
+### 1. Career reel (section 02)
+Timeline replaced with a one-role-at-a-time carousel: logo slot centred,
+arrows either side, dots + counter, and a disclosure that opens the bullets
+and a media slot.
+
+| Check | Result |
+|---|---|
+| 5 slides, 5 dots built from the slides | PASS |
+| Opens on the current role (5/5), next disabled at the end | PASS |
+| Detail collapses/expands, `aria-expanded` tracks it | PASS |
+| Empty `.chapter-media` collapses (`display: none`) | PASS |
+| Arrow navigation syncs counter + dot | PASS |
+| **Page scroll on fresh load = 0** (no hijack) | PASS |
+
+**Bug caught:** the initial jump to the current role first used
+`scrollIntoView`. On load the section sits far below the fold, and
+`block: "nearest"` scrolls the *page* to it — the visitor would land
+mid-page. Replaced with a measured `scrollLeft` delta on the track, which
+moves the container only and is correct in both writing directions.
+Proven with a fresh navigation: page scroll 0, track scroll 2297.
+
+**Bug caught:** replacing the old timeline CSS wholesale dropped
+`.current-chip`, `.current-dot` and `@keyframes pulse`. The «الحالي» badge
+rendered as bare text. Restored.
+
+### 2. Hero photograph
+Owner's own on-site photo, greyscale, behind a navy scrim.
+
+Contrast was measured on **real pixels**, not estimated: the image is drawn
+to a canvas, the CSS filter chain (`grayscale` → `contrast` → `brightness`)
+is applied numerically, the scrim alpha is composited per sample row, and the
+result is compared against the text colour.
+
+| Viewport | Samples | Worst contrast |
+|---|---|---|
+| 775px | 52,449 | **6.55** (ghost button) |
+| 1280px | 59,216 | **7.70** (hero statement) |
+
+**Measurement bug caught:** the first run parsed `background-size: auto 160%`
+with `parseFloat`, yielding 160 *pixels* instead of 160% of the container.
+Every sample fell outside the image and the run reported a false PASS with
+zero samples measured. Always check the sample count, not just the verdict.
+
+**Crop:** the source is a 720×1280 portrait with a wide black letterbox bar.
+On a tall container `cover` binds on height, leaving no vertical freedom, so
+the bar filled the hero. Narrow viewports now oversize to `auto 160%` to
+restore that freedom and focus at 75%.
+
+### 3. Navy & gold palette
+Inverted from the light build. Surface token *names* kept, values moved.
+
+- 36 text elements measured, **zero failures**; range 6.08 – 16.59.
+- Two apparent failures (1.05, 1.76) were a flaw in the first measuring
+  script — it treated a 3%-alpha overlay as opaque. Composited correctly:
+  8.99 and 16.59.
+- Six sites used the light surface colour as *foreground* on green fills;
+  a blind inversion would have made them invisible. Given `--on-gold`.
+- Three sites sat on the accent fill and would have gone gold-on-gold:
+  `.badge-type`, `.crest-chip`, `.current-dot`. All flipped to navy.
+- `@media print` redefines the tokens back to ink-on-paper.
+
+### 4. Language toggle
+108 elements carry `data-en`; the toggle swaps them, flips `lang`/`dir`,
+rewrites `<title>` and the meta description, translates four `aria-label`s,
+and persists to `localStorage`.
+
+Round trip ar → en → ar verified: `<bdi>` wrappers intact (2 in the lede,
+1 in the stats, 1 in the org line), current chip, kicker numbers and eyebrow
+dot all survive. Links and `data-copy` values unchanged. No horizontal
+overflow in either language. Mobile 375px: no overflow, toggle 42px beside
+the CTA, section links drop to a scrolling strip.
+
+### 5. Contact copy buttons
+`mailto:`/`tel:` do nothing without an OS handler — diagnosed as the cause of
+"the email doesn't open a compose window". The links stay; a copy button was
+added to the phone and email cards.
+
+- Buttons are siblings of the `<a>`, never nested (invalid + unfocusable).
+  Event path recorded on a real click: reaches the button only.
+- `navigator.clipboard` with a `textarea` + `execCommand` fallback for
+  non-secure contexts.
+- Visible on hover, on focus, and always under `@media (hover: none)`.
+- Labels and `aria-label`s follow the language toggle.
+
+### 6. Section 05 — organisations
+Flat 12-cell grid became three labelled bands of four. Four per band tiles
+exactly at 4 and 2 columns, so no card is ever stranded alone on a row.
+
+### Environment note
+The Browser pane cannot render local files in this setup, and screenshots
+intermittently time out when the app window is not frontmost. Where a
+screenshot failed, layout was confirmed via computed styles and bounding
+boxes. Visual sign-off remains the owner's.
+
+### Still open
+- Official logo files for both logo slots (trademarks; none licensed here).
+- Media for the career cards — slots are built and collapse while empty.
+
+---
+
+
+## v3 — light editorial + dark finale (2026-08-18, superseded)
 
 Rebuilt `index.html`, `assets/css/main.css`, `assets/js/main.js` from scratch.
 Content restored from the CV-faithful fact set; the invented operational data that

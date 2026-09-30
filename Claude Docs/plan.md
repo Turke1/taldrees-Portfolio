@@ -1,6 +1,18 @@
 # Turki Al-Dress — Portfolio Site Plan
 
-> **v3 — current** (2026-08-18). Light editorial base + dark green finale.
+> **v4 — current** (2026-09-14). Navy & gold, bilingual, photographic hero.
+> The light editorial base described below was inverted at the owner's request:
+> the page is now deep navy with white text and a gold accent, the hero carries
+> his own on-site photograph in greyscale, an Arabic/English toggle swaps the
+> whole page, and the career section became a one-role-at-a-time reel.
+> Sections 01, 04 and 06 keep the structure planned below; only the palette and
+> the career layout changed. The v3 notes are kept because the *reasoning*
+> behind the type, the grid and the content rules still applies.
+>
+> **Note on the brief:** the original constraint said "no dark blue". The owner
+> reversed that decision deliberately on 2026-09-14.
+
+> **v3 — superseded** (2026-08-18). Light editorial base + dark green finale.
 > v1 («ليلة العرض» dark stage-night) — rejected by client.
 > v2 («دليل الأعمال» Saudi Modern, all-light) — the direction the client chose.
 > Between v2 and v3 the repo drifted back to a dark "planning board / stage AVL"
