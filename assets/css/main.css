@@ -607,6 +607,26 @@ html[lang="en"] .org-ar {
 
 .crest-chip { fill: var(--on-gold); }
 
+/* The window a real pass reserves for the photo; here it frames the monogram. */
+.crest-window {
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1;
+  opacity: 0.45;
+}
+
+/* `direction: ltr` is load-bearing. The document runs RTL and SVG text
+   inherits it — this project has already been bitten once by Latin glyphs
+   collapsing inside an RTL SVG (see the v2 note in verification.md). */
+.crest-mono {
+  direction: ltr;
+  fill: currentColor;
+  font-family: var(--font-body);
+  font-size: 23px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
 .crest-line {
   fill: none;
   stroke: currentColor;
@@ -614,28 +634,6 @@ html[lang="en"] .org-ar {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
-
-.crest-lamp { fill: currentColor; }
-
-.crest-beam {
-  fill: var(--bronze);
-  opacity: 0.2;
-  animation: crest-glow 4.5s var(--ease) infinite alternate;
-}
-
-.crest-beam-b { animation-delay: -2.25s; }
-
-@keyframes crest-glow {
-  from { opacity: 0.11; }
-  to   { opacity: 0.28; }
-}
-
-.crest-pool {
-  fill: var(--bronze);
-  opacity: 0.28;
-}
-
-.crest-dot { fill: var(--bronze-text); }
 
 .crest-bars {
   fill: currentColor;
@@ -1820,8 +1818,7 @@ html[lang="en"] .org-ar {
     transform: none;
   }
 
-  .crest-sway,
-  .crest-beam { animation: none; }
+  .crest-sway { animation: none; }
 }
 
 /* ═══════════════════ Print ═══════════════════ */
