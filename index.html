@@ -42,7 +42,7 @@
       <nav class="nav-links" aria-label="التنقل الرئيسي">
         <a href="#record" data-en="Event Record">سجل الفعاليات</a>
         <a href="#career" data-en="Career">المسيرة</a>
-        <a href="#skills" data-en="Capabilities">القدرات</a>
+        <a href="#programmes" data-en="Programmes">البرامج</a>
         <a href="#creds" data-en="Credentials">الاعتمادات</a>
         <a href="#partners" data-en="Organisations">الجهات</a>
       </nav>
@@ -58,8 +58,13 @@
   <main id="main">
 
     <!-- ═══════════════════ HERO ═══════════════════ -->
+    <!-- The photograph is a page-level backdrop, not a hero child: it has to
+         run past the hero's bottom edge and end at the first record row.
+         Its height is measured in main.js and published as --photo-h. -->
+    <div class="page-photo" aria-hidden="true"></div>
+    <div class="page-scrim" aria-hidden="true"></div>
+
     <section class="hero" aria-labelledby="hero-name">
-      <div class="hero-photo" aria-hidden="true"></div>
       <div class="hero-rules" aria-hidden="true"></div>
 
       <div class="container hero-grid">
@@ -74,13 +79,16 @@
             <span>الدريس</span>
           </h1>
 
-          <p class="hero-statement reveal" data-en="An operations manager running the backstage of the Kingdom's largest events.">مدير عمليات يقود كواليس أضخم فعاليات المملكة.</p>
+          <p class="hero-statement reveal" data-en="From Gate Operations to Leading the Middle East’s Largest Events.">من البوابات إلى قيادة أكبر الفعاليات في الشرق الأوسط.</p>
 
-          <p class="hero-lede reveal" data-en="From Riyadh Season HQ to the Red Sea International Film Festival &amp;mdash; managing operations and projects since 2018, with a focus on operational excellence, resource efficiency and risk management, aligned with Saudi Vision 2030.">
-            من المقر الرئيسي لموسم الرياض إلى مهرجان البحر الأحمر السينمائي الدولي —
-            إدارة عمليات ومشاريع منذ <bdi dir="ltr">2018</bdi>، بتركيز على التميّز التشغيلي
-            وكفاءة الموارد وإدارة المخاطر، وبما يتوافق مع رؤية السعودية
-            <bdi dir="ltr">2030</bdi> ومستهدفاتها.
+          <p class="hero-lede reveal" data-en="A career built from the ground up, progressing through field operations and site management to leading major event operations and overseeing high-profile programs across diverse regions of Saudi Arabia, from the capital to the south. A journey defined by hands-on experience, operational leadership, resource optimization, and risk management, culminating in work with prestigious organizations — from Riyadh Season’s headquarters to the Red Sea International Film Festival — in alignment with Saudi Vision 2030.">
+            رحلة مهنية بدأت من قلب الميدان، وتدرّجت عبر مختلف مستويات التشغيل
+            وإدارة المواقع، وصولًا إلى قيادة عمليات كبرى الفعاليات وإدارة برامج
+            نوعية متعددة النطاقات، امتدت من العاصمة إلى جنوب المملكة. مسيرة تجمع
+            بين الخبرة الميدانية والقيادة التشغيلية والتميّز في إدارة الموارد
+            والمخاطر، وصولًا إلى العمل مع جهات رفيعة المستوى، من المقر الرئيسي
+            لموسم الرياض إلى مهرجان البحر الأحمر السينمائي الدولي، بما يواكب
+            طموحات رؤية السعودية <bdi dir="ltr">2030</bdi>.
           </p>
 
           <div class="hero-actions reveal">
@@ -382,11 +390,32 @@
                 </button>
 
                 <div class="chapter-detail" id="chap-03" hidden>
-                  <ul class="chapter-points" data-en="&lt;li&gt;Project planning, resource allocation, risk assessment and mitigation.&lt;/li&gt;&lt;li&gt;Quality control, schedule management and logistics planning.&lt;/li&gt;&lt;li&gt;Leading major event projects: Saudi Games Torch, 24FINTECH, Red Sea International Film Festival, UNESCO and others.&lt;/li&gt;">
-                    <li>تخطيط المشاريع وتوزيع الموارد وتقييم المخاطر والحد منها.</li>
-                    <li>ضبط الجودة وإدارة الجداول الزمنية والتخطيط اللوجستي.</li>
-                    <li>قيادة مشاريع فعاليات كبرى: شعلة الألعاب السعودية، <bdi dir="ltr">24FINTECH</bdi>، مهرجان البحر الأحمر السينمائي، اليونسكو وغيرها.</li>
-                  </ul>
+                  <div class="chapter-group">
+                    <p class="chapter-group-label" data-en="Scope of work">نطاق العمل</p>
+                    <ul class="chapter-tags" role="list" data-en="&lt;li&gt;Project Planning&lt;/li&gt;&lt;li&gt;Resource Allocation&lt;/li&gt;&lt;li&gt;Risk Assessment and Mitigation&lt;/li&gt;&lt;li&gt;Quality Control&lt;/li&gt;&lt;li&gt;Timeline Management&lt;/li&gt;&lt;li&gt;Shipping and Transportation Coordination&lt;/li&gt;&lt;li&gt;Supply Chain Enhancement&lt;/li&gt;&lt;li&gt;Field Supervisor&lt;/li&gt;&lt;li&gt;Logistics Planning&lt;/li&gt;">
+                      <li>تخطيط المشاريع</li>
+                      <li>توزيع الموارد</li>
+                      <li>تقييم المخاطر والحد منها</li>
+                      <li>ضبط الجودة</li>
+                      <li>إدارة الجداول الزمنية</li>
+                      <li>تنسيق الشحن والنقل</li>
+                      <li>تحسين سلسلة الإمداد</li>
+                      <li>الإشراف الميداني</li>
+                      <li>التخطيط اللوجستي</li>
+                    </ul>
+                  </div>
+
+                  <div class="chapter-group">
+                    <p class="chapter-group-label" data-en="Competencies">المهارات</p>
+                    <ul class="chapter-tags" role="list" data-en="&lt;li&gt;Planning and Organization&lt;/li&gt;&lt;li&gt;Communication&lt;/li&gt;&lt;li&gt;Analysis and Evaluation&lt;/li&gt;&lt;li&gt;Strategic Thinking&lt;/li&gt;&lt;li&gt;Problem-Solving&lt;/li&gt;&lt;li&gt;Risk Management&lt;/li&gt;">
+                      <li>التخطيط والتنظيم</li>
+                      <li>التواصل</li>
+                      <li>التحليل والتقييم</li>
+                      <li>التفكير الاستراتيجي</li>
+                      <li>حل المشكلات</li>
+                      <li>إدارة المخاطر</li>
+                    </ul>
+                  </div>
                   <div class="chapter-media"></div>
                 </div>
               </article>
@@ -453,49 +482,91 @@
         </div>
       </div>
     </section>
-
-    <!-- ═══════════════════ 03 — القدرات ═══════════════════ -->
-    <section class="section on-paper" id="skills" aria-labelledby="skills-title">
+    <!-- ═══════════════════ 03 — أبرز البرامج ومشاريعها ═══════════════════ -->
+    <section class="section on-paper" id="programmes" aria-labelledby="programmes-title">
       <div class="container">
         <header class="sec-head">
-          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;03&lt;/span&gt; Operational Capabilities"><span class="kicker-num" dir="ltr">03</span> القدرات التشغيلية</p>
-          <h2 class="section-title reveal" id="skills-title" data-en="What does he actually run?">ما الذي يديره فعليًا؟</h2>
+          <p class="kicker reveal" data-en="&lt;span class=&quot;kicker-num&quot; dir=&quot;ltr&quot;&gt;03&lt;/span&gt; Key Programmes"><span class="kicker-num" dir="ltr">03</span> أبرز البرامج</p>
+          <h2 class="section-title reveal" id="programmes-title" data-en="Key programmes and their projects">أبرز البرامج ومشاريعها</h2>
         </header>
 
-        <ul class="skills-grid" role="list">
-          <li class="skill reveal" data-en="&lt;h3&gt;Strategic event planning&lt;/h3&gt;&lt;p&gt;From concept to a complete execution plan with clear phases and ownership.&lt;/p&gt;">
-            <h3>التخطيط الاستراتيجي للفعاليات</h3>
-            <p>من الفكرة إلى خطة تنفيذ متكاملة بمراحل ومسؤوليات واضحة.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Team leadership and field supervision&lt;/h3&gt;&lt;p&gt;Running on-site teams minute by minute through to event close.&lt;/p&gt;">
-            <h3>قيادة الفرق والإشراف الميداني</h3>
-            <p>إدارة فرق العمل في الموقع لحظةً بلحظة حتى إغلاق الفعالية.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Command and control rooms&lt;/h3&gt;&lt;p&gt;Operating and leading C&amp;C rooms at large-scale events such as 24FINTECH.&lt;/p&gt;">
-            <h3>غرف القيادة والتحكم</h3>
-            <p>تشغيل غرف <bdi dir="ltr">C&amp;C</bdi> وقيادتها في فعاليات ضخمة مثل <bdi dir="ltr">24FINTECH</bdi>.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Supplier and contractor management&lt;/h3&gt;&lt;p&gt;Coordinating, auditing and tracking supplier contracts &amp;mdash; built on Riyadh Season accreditation experience.&lt;/p&gt;">
-            <h3>إدارة الموردين والمقاولين</h3>
-            <p>تنسيق وتدقيق ومتابعة عقود الموردين — بخبرة اعتمادات موسم الرياض.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Budget and cost control&lt;/h3&gt;&lt;p&gt;Improving operational spend without compromising the visitor experience.&lt;/p&gt;">
-            <h3>ضبط الميزانية والتكاليف</h3>
-            <p>تحسين الإنفاق التشغيلي دون المساس بجودة تجربة الزائر.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Risk management and contingency planning&lt;/h3&gt;&lt;p&gt;Assessing risk early and preparing alternative scenarios ready to activate.&lt;/p&gt;">
-            <h3>إدارة المخاطر والخطط البديلة</h3>
-            <p>تقييم المخاطر مبكرًا وتجهيز سيناريوهات بديلة جاهزة للتفعيل.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Logistics and site operations&lt;/h3&gt;&lt;p&gt;Planning transport and supply, and optimising the event supply chain.&lt;/p&gt;">
-            <h3>اللوجستيات وعمليات المواقع</h3>
-            <p>تخطيط النقل والإمداد وتحسين سلاسل التوريد للفعالية.</p>
-          </li>
-          <li class="skill reveal" data-en="&lt;h3&gt;Quality and compliance&lt;/h3&gt;&lt;p&gt;Ensuring services meet the standards of regulators and partners.&lt;/p&gt;">
-            <h3>الجودة والامتثال</h3>
-            <p>ضمان مطابقة الخدمات لمعايير الجهات المنظمة والشركاء.</p>
-          </li>
-        </ul>
+        <!-- A tablist, not a carousel: the career reel already uses a reel, and
+             programmes are a set you compare rather than a sequence you walk.
+             Every panel stays in the DOM; selecting only toggles [hidden]. -->
+        <div class="prog reveal">
+          <div class="prog-tabs" role="tablist" aria-orientation="vertical"
+               aria-label="البرامج" data-en-label="Programmes">
+
+            <button type="button" class="prog-tab" role="tab" id="prog-t1"
+                    aria-controls="prog-p1" aria-selected="true" tabindex="0">
+              <span class="prog-tab-name" data-en="Riyadh Season">موسم الرياض</span>
+              <span class="prog-tab-year" dir="ltr">2022–2023</span>
+            </button>
+
+            <button type="button" class="prog-tab" role="tab" id="prog-t2"
+                    aria-controls="prog-p2" aria-selected="false" tabindex="-1">
+              <span class="prog-tab-name" data-en="Aseer Season — Asdaa">موسم عسير — أصداء</span>
+              <span class="prog-tab-year" dir="ltr">2025</span>
+            </button>
+
+            <button type="button" class="prog-tab" role="tab" id="prog-t3"
+                    aria-controls="prog-p3" aria-selected="false" tabindex="-1">
+              <span class="prog-tab-name" data-en="Ramadan Season — Ministry of Culture">موسم رمضان — وزارة الثقافة</span>
+              <span class="prog-tab-year" dir="ltr">2025</span>
+            </button>
+
+            <button type="button" class="prog-tab" role="tab" id="prog-t4"
+                    aria-controls="prog-p4" aria-selected="false" tabindex="-1">
+              <span class="prog-tab-name" data-en="Saudi Falcon Club">نادي الصقور السعودي</span>
+              <span class="prog-tab-year" dir="ltr">2025</span>
+            </button>
+          </div>
+
+          <div class="prog-stage">
+
+            <div class="prog-panel" role="tabpanel" id="prog-p1" aria-labelledby="prog-t1" tabindex="0">
+              <dl class="prog-meta">
+                <div><dt data-en="Entity">الجهة</dt><dd data-en="National Events Center (NEC)">المركز الوطني للفعاليات <bdi dir="ltr">(NEC)</bdi></dd></div>
+                <div><dt data-en="Role">الدور</dt><dd data-en="Accreditation officer — headquarters">مسؤول اعتمادات — المقر الرئيسي</dd></div>
+              </dl>
+              <p class="prog-projects-label" data-en="Projects">المشاريع</p>
+              <ul class="prog-projects" role="list" data-en="&lt;li&gt;&lt;span class=&quot;prog-project-i&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot;&gt;01&lt;/span&gt;Zaman Village&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;prog-project-i&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot;&gt;02&lt;/span&gt;Car Show&lt;/li&gt;">
+                <li><span class="prog-project-i" dir="ltr" aria-hidden="true">01</span>قرية زمان</li>
+                <li><span class="prog-project-i" dir="ltr" aria-hidden="true">02</span>معرض السيارات</li>
+              </ul>
+            </div>
+
+            <div class="prog-panel" role="tabpanel" id="prog-p2" aria-labelledby="prog-t2" tabindex="0" hidden>
+              <dl class="prog-meta">
+                <div><dt data-en="Entity">الجهة</dt><dd data-en="MUFEED">مفيد <bdi dir="ltr">MUFEED</bdi></dd></div>
+                <div><dt data-en="Role">الدور</dt><dd data-en="Operations management">إدارة العمليات</dd></div>
+              </dl>
+              <p class="prog-projects-label" data-en="Projects">المشاريع</p>
+              <ul class="prog-projects" role="list" data-en="&lt;li&gt;&lt;span class=&quot;prog-project-i&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot;&gt;01&lt;/span&gt;Tuesday Market&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;prog-project-i&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot;&gt;02&lt;/span&gt;Al-Adl Park&lt;/li&gt;&lt;li&gt;&lt;span class=&quot;prog-project-i&quot; dir=&quot;ltr&quot; aria-hidden=&quot;true&quot;&gt;03&lt;/span&gt;Art Street&lt;/li&gt;">
+                <li><span class="prog-project-i" dir="ltr" aria-hidden="true">01</span>سوق الثلاثاء</li>
+                <li><span class="prog-project-i" dir="ltr" aria-hidden="true">02</span>حديقة العدل</li>
+                <li><span class="prog-project-i" dir="ltr" aria-hidden="true">03</span>شارع الفن</li>
+              </ul>
+            </div>
+
+            <div class="prog-panel" role="tabpanel" id="prog-p3" aria-labelledby="prog-t3" tabindex="0" hidden>
+              <dl class="prog-meta">
+                <div><dt data-en="Entity">الجهة</dt><dd data-en="Ministry of Culture — delivered with MUFEED">وزارة الثقافة — بالتنفيذ مع مفيد</dd></div>
+                <div><dt data-en="Role">الدور</dt><dd data-en="Operations management">إدارة العمليات</dd></div>
+              </dl>
+              <!-- Project list awaiting the owner's input; the label and list are
+                   omitted rather than shown empty. -->
+            </div>
+
+            <div class="prog-panel" role="tabpanel" id="prog-p4" aria-labelledby="prog-t4" tabindex="0" hidden>
+              <dl class="prog-meta">
+                <div><dt data-en="Entity">الجهة</dt><dd data-en="Saudi Falcon Club — delivered with MUFEED">نادي الصقور السعودي — بالتنفيذ مع مفيد</dd></div>
+                <div><dt data-en="Role">الدور</dt><dd data-en="Operations management">إدارة العمليات</dd></div>
+              </dl>
+            </div>
+
+          </div>
+        </div>
       </div>
     </section>
 

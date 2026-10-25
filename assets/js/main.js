@@ -172,10 +172,13 @@
       if (el) el.setAttribute("aria-label", ARIA[sel][lang]);
     });
 
-    /* copy buttons keep their label in an attribute, not a text node */
-    document.querySelectorAll(".c-copy[data-en-label]").forEach(function (b) {
-      if (!b.dataset.arLabel) b.dataset.arLabel = b.getAttribute("aria-label");
-      b.setAttribute("aria-label", toEn ? b.getAttribute("data-en-label") : b.dataset.arLabel);
+    /* Anything whose label lives in an attribute rather than a text node:
+       copy buttons, the reel's arrows, the programme tablist. This was once
+       scoped to .c-copy, which silently left every other data-en-label —
+       the reel arrows and the tablist among them — stuck in Arabic. */
+    document.querySelectorAll("[data-en-label]").forEach(function (el) {
+      if (!el.dataset.arLabel) el.dataset.arLabel = el.getAttribute("aria-label") || "";
+      el.setAttribute("aria-label", toEn ? el.getAttribute("data-en-label") : el.dataset.arLabel);
     });
 
     var meta = META[lang];
@@ -200,6 +203,58 @@
   btn.addEventListener("click", function () {
     apply(document.documentElement.lang === "en" ? "ar" : "en");
   });
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   Backdrop extent
+
+   The photograph runs from the top of the page and stops at the first row of
+   the event record. That point is not a constant — the hero and the section
+   heading reflow with viewport width and again when the language switches —
+   so it is measured and published as two custom properties:
+     --photo-h        how tall the picture and its scrim are
+     --record-surface where section 01 starts painting its own surface
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  var main = document.getElementById("main");
+  var record = document.getElementById("record");
+  var photo = document.querySelector(".page-photo");
+  if (!main || !record || !photo) return;
+
+  var firstRow = record.querySelector(".record-row");
+  if (!firstRow) return;
+
+  /* offsetTop, not getBoundingClientRect: the rows carry a reveal transform
+     that shifts their painted position by 16px before they animate in, and a
+     rect would measure that shift as if it were layout. */
+  function offsetTop(el) {
+    var y = 0;
+    while (el) { y += el.offsetTop; el = el.offsetParent; }
+    return y;
+  }
+
+  function measure() {
+    var rowY = offsetTop(firstRow);
+    main.style.setProperty("--photo-h", Math.round(rowY - offsetTop(main)) + "px");
+    record.style.setProperty("--record-surface", Math.round(rowY - offsetTop(record)) + "px");
+  }
+
+  measure();
+
+  window.addEventListener("resize", measure, { passive: true });
+
+  /* webfonts land after first paint and change every line's height */
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+
+  /* the language toggle rewrites the headings, so the row moves */
+  var lang = document.getElementById("langToggle");
+  if (lang) {
+    lang.addEventListener("click", function () {
+      requestAnimationFrame(measure);
+    });
+  }
 })();
 
 /* ═══════════════════════════════════════════════════════════════
@@ -322,6 +377,68 @@
       paint(current);
     });
   }
+})();
+
+/* ═══════════════════════════════════════════════════════════════
+   Programmes — pick one on the rail, its projects appear beside it.
+
+   A real tablist, so it carries roving tabindex and arrow-key movement:
+   only the selected tab is in the tab order, and the arrows move between
+   tabs once focus is inside. Panels are only hidden, never detached, so
+   every project stays searchable and printable.
+   ═══════════════════════════════════════════════════════════════ */
+(function () {
+  "use strict";
+
+  var root = document.querySelector(".prog");
+  if (!root) return;
+
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  if (!tabs.length) return;
+
+  var panels = tabs.map(function (t) {
+    return document.getElementById(t.getAttribute("aria-controls"));
+  });
+
+  function select(i, moveFocus) {
+    tabs.forEach(function (tab, n) {
+      var on = n === i;
+      tab.setAttribute("aria-selected", on ? "true" : "false");
+      tab.tabIndex = on ? 0 : -1;
+      if (panels[n]) panels[n].hidden = !on;
+    });
+    if (moveFocus) tabs[i].focus();
+  }
+
+  tabs.forEach(function (tab, i) {
+    tab.addEventListener("click", function () { select(i, false); });
+  });
+
+  root.querySelector('[role="tablist"]').addEventListener("keydown", function (e) {
+    var i = tabs.indexOf(document.activeElement);
+    if (i < 0) return;
+
+    var last = tabs.length - 1;
+    var next;
+
+    /* The rail is vertical on wide screens and horizontal on narrow ones, so
+       both axes move between tabs. Left/Right swap meaning under RTL. */
+    var rtl = document.documentElement.dir === "rtl";
+    switch (e.key) {
+      case "ArrowDown":  next = i === last ? 0 : i + 1; break;
+      case "ArrowUp":    next = i === 0 ? last : i - 1; break;
+      case "ArrowRight": next = rtl ? (i === 0 ? last : i - 1) : (i === last ? 0 : i + 1); break;
+      case "ArrowLeft":  next = rtl ? (i === last ? 0 : i + 1) : (i === 0 ? last : i - 1); break;
+      case "Home":       next = 0; break;
+      case "End":        next = last; break;
+      default: return;
+    }
+
+    e.preventDefault();
+    select(next, true);
+  });
+
+  select(0, false);
 })();
 
 /* ═══════════════════════════════════════════════════════════════
