@@ -1511,10 +1511,18 @@ html[lang="en"] .org-ar {
 }
 
 /* ═══════════════════ 04 — CREDENTIALS ═══════════════════ */
+/* Four blocks, so the column count is pinned rather than left to auto-fit:
+   at minmax(16.5rem, …) the grid settled on three columns and stranded the
+   fourth alone on its own row. Two columns tile 4 exactly; four columns would
+   too, but squeeze the six PMI chips into a 235px track. */
 .creds-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16.5rem, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: clamp(2rem, 4vw, 3rem);
+}
+
+@media (max-width: 620px) {
+  .creds-grid { grid-template-columns: minmax(0, 1fr); }
 }
 
 .cred-block h3 {
@@ -1524,6 +1532,42 @@ html[lang="en"] .org-ar {
   padding-block-end: 0.85rem;
   margin-block-end: 1.15rem;
   border-block-end: 1px solid var(--rule-strong);
+}
+
+/* Typographic stand-in for an institution's mark — a plate, not a line of
+   text, so it reads as a logo lockup beside the credential chips. Swap for
+   <img class="cred-logo"> when a licensed file exists. */
+.cred-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-block-end: 1rem;
+  padding: 0.5rem 0.95rem;
+  font-family: var(--font-mono);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-indent: 0.22em;   /* re-centres text that letter-spacing pushes left */
+  color: var(--on-gold);
+  background: var(--gold-fill);
+  border-radius: 3px;
+}
+
+.cred-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  margin-block-end: 1rem;
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition: filter 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.cred-block:hover .cred-logo {
+  filter: none;
+  opacity: 1;
 }
 
 .cred-edu {
