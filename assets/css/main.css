@@ -1328,6 +1328,97 @@ html[lang="en"] .org-ar {
   transform: scale(1.3);
 }
 
+/* ═══════════════════ 02 — EXECUTIVE PROTECTION ═══════════════════
+   Client names carry no Arabic translation layer: a brand is the same word
+   in both languages, so the Latin name leads and the Arabic rendering sits
+   under it, both visible at once. Only the section heading switches. */
+.clients {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.client {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.6rem 1.1rem;
+  text-align: center;
+  background: var(--white);
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  transition: border-color 0.3s var(--ease), transform 0.3s var(--ease),
+              box-shadow 0.3s var(--ease);
+}
+
+.client:hover {
+  border-color: var(--gold);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -22px rgba(0, 0, 0, 0.6);
+}
+
+.client-mark {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.4rem;
+  height: 3.4rem;
+  margin-block-end: 0.4rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 50%;
+  background: var(--paper);
+  transition: border-color 0.3s var(--ease);
+}
+
+.client:hover .client-mark { border-color: var(--gold); }
+
+.client-monogram {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: var(--gold);
+}
+
+/* Drop-in for a licensed logo file, in place of the monogram span. */
+.client-logo {
+  width: 2.1rem;
+  height: 2.1rem;
+  object-fit: contain;
+  filter: grayscale(1);
+  opacity: 0.85;
+  transition: filter 0.3s var(--ease), opacity 0.3s var(--ease);
+}
+
+.client:hover .client-logo { filter: none; opacity: 1; }
+
+.client-name {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.35;
+  color: var(--ink);
+  text-wrap: balance;
+}
+
+.client-ar {
+  font-family: var(--font-display);
+  font-size: 0.815rem;
+  font-weight: 400;
+  color: var(--ink-soft);
+}
+
+/* Four clients, so the column count is pinned: auto-fit would settle on
+   three at some widths and strand the fourth alone on its own row. */
+@media (max-width: 860px) {
+  .clients { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 420px) {
+  .clients { grid-template-columns: minmax(0, 1fr); }
+}
+
 /* ═══════════════════ 03 — PROGRAMMES ═══════════════════
    Pick a programme on the rail, its projects appear beside it. A tablist
    rather than another reel: section 02 already carries a carousel, and
